@@ -9,10 +9,8 @@
 
 # Dreams-Hotels
 ## Ecrire un commentaire pour moi Ismail/Jamal
-Khey jamal mli tnzal projet zid fih wahed l fichier ismo ".evn" ghatlkah f xi projet 3andek, .evn makaybghixi ytle3 ila kdart jreb xof wax ytla3 lik 
+<h1> Khey jamal mli tnzal projet zid fih wahed l fichier ismo ".evn" ghatlkah f xi projet 3andek, .evn makaybghixi ytle3 ila kdart jreb xof wax ytla3 lik </h1>
 ## About Laravel
-<h1>Khey jamal mli tnzal projet zid fih wahed l fichier ismo ".evn" ghatlkah f xi projet 3andek, .evn makaybghixi ytle3 ila kdart jreb xof wax ytla3 lik </h1>
-
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
