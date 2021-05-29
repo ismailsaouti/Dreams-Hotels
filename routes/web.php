@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/hotels', function () {
     return view('hotels');
 });
+Route::get('/test', function () {
+    return view('auth.login');
+});

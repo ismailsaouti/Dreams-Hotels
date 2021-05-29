@@ -1,4 +1,4 @@
-@extends("index")
+@extends("layouts.nav")
 @section("content")
 
 
