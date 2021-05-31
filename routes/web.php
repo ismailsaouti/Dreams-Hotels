@@ -19,6 +19,16 @@ Route::get('/', function () {
 Route::get('/hotels', function () {
     return view('hotels');
 });
-Route::get('/test', function () {
-    return view('auth.login');
+Route::get('/chambres', function () {
+    return view('chambres');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/offres', function () {
+    return view('offres');
+});
+
+Route::get('register',function(){
+    return view('auth.register');
 });
