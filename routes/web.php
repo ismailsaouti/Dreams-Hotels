@@ -29,6 +29,6 @@ Route::get('/offres', function () {
     return view('offres');
 });
 
-Route::post('/register',function(){
+Route::get('register',function(){
     return view('auth.register');
-});
+})->name('register');

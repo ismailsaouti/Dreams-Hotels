@@ -18,29 +18,29 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="register-form" method="post" role="form" >
+								<form id="register-form" method="post" role="form" action="{{ route('register') }}" >
 									<div class="form-group">
-										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="First Name" value="" required >
+										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="Prénom" value="" required >
 									</div>
 									<div class="form-group">
-										<input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Last Name" value="" required >
+										<input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Nom" value="" required >
 									</div>
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required >
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Nom d'utilisateur" value="" required >
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="register_email" tabindex="1" class="form-control" placeholder="Email Address" value="" required >
+										<input type="email" name="email" id="register_email" tabindex="1" class="form-control" placeholder="Email" value="" required >
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Mot de passe" required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="confirm_password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
+										<input type="password" name="confirm_password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmez le mot de passe" required>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="S'inscrire maintenant">
 											</div>
 										</div>
 									</div>
