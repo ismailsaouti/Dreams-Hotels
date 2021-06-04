@@ -1,5 +1,3 @@
-@extends("layouts.header")
-	@section("header_content")
 	@extends("layouts.nav")
 	@section("nav_content")
     <div class="jumbotron">
@@ -7,4 +5,3 @@
   </div>
 
 	@stop
-@stop
