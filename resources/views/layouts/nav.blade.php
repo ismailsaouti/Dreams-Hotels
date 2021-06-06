@@ -1,6 +1,34 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
+   <style type="text/css">
+    body{
+      background: #A9A9A9;
+    }
+    .navbar-inverse{
+      background:#800000;
+      padding: 8px;
+      font-size: 17px;
+      color: #ffffff;
+      flex: 1 1 40rem;
+      align-items: center;
+    }
+    .navbar-nav{
+      padding: 0 0 0 20px;
+    }
+    .navbar-right{
+      margin-right: 100px;
+    }
+    a{
+      font-size: 20px;
+      color: #ffffff;
+    }  
+    nav ul{
+      min-height: 8vh;
+      justify-content: space-around;;
+      display: flex;
+          }
+    </style> 
   <meta charset="UTF-8">
   <title>Hotel</title>
   {{-- <link rel="stylesheet" href="css/bootstrap.css">
