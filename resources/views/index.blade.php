@@ -1,5 +1,5 @@
-	@extends("layouts.nav")
-	@section("nav_content")
+   @extends('layouts.app')
+    @section('content')
 	<style type="text/css">
 		body {
     background-image: linear-gradient(to right, #7B1FA2, #E91E63)
@@ -250,4 +250,4 @@
         </div>
     </div>
 </div>
-	@stop
+    @endsection

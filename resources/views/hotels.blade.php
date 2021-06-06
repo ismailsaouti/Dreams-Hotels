@@ -1,5 +1,6 @@
-	@extends("layouts.nav")
-	@section("nav_content")
+   @extends('layouts.app')
+    @section('content')
+	
     <style type="text/css">
     	section#content {
     min-height: 400px;
@@ -100,4 +101,4 @@
         </div>
     </div>
 </div>
-	@stop
+    @endsection

@@ -33,3 +33,7 @@ Route::get('/offres', function () {
 Route::get('register',function(){
     return view('auth.register');
 })->name('register');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
