@@ -15,7 +15,16 @@ class CreateChambresTable extends Migration
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->id();
+            $table->string('type')->default("Chambre simple");
+            $table->float('prix', 10)->default(150);
+            $table->text('description');
+            $table->integer('numero')->unique();
+            $table->foreignId('hotel_id')->references('id')->on('hotels');
+            $table->boolean("disponibilite")->default(true);
+            $table->integer('nombreLit')->default(1);
             $table->timestamps();
+
+
         });
     }
 
