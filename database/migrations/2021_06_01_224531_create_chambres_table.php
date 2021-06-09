@@ -19,11 +19,10 @@ class CreateChambresTable extends Migration
             $table->float('prix', 10)->default(150);
             $table->text('description');
             $table->integer('numero')->unique();
-            $table->foreignId('hotel_id')->references('id')->on('hotels');
             $table->boolean("disponibilite")->default(true);
             $table->integer('nombreLit')->default(1);
-            $table->timestamps();
-
+            $table->foreignId('hotel_id')->references('id')->on('hotels')->default(1);
+            $table->timestamps();            
 
         });
     }

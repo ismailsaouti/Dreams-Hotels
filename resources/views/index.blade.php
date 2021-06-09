@@ -212,6 +212,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    
                                     <select class="form-control" required>
                                         <option value="" selected hidden>no of rooms</option>
                                         <option>1</option>
