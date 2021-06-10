@@ -74,12 +74,19 @@ Route::get('chambredata',function(){
     //on ajoute sur Chambre model la function belongsTo()     
     //return Chambre::find(6)->Hotel->Nom; 
 //One to many relationships between Chambres and Hotels
-    $hotel=hotel::find(1);
+    /*$hotel=hotel::find(1);
     echo "<h1>les numéros de chambres de l'hotel ".$hotel->Nom."qui sont disponible</br></h1>";
     foreach($hotel->chambres as $chambre)
     {
         if($chambre->disponibilite==false){
        echo $chambre->numero."<br>";}
+    }*/
+//Many to many relationships between Chambres and Hotels
+    $hotel=hotel::find(1);
+    echo "les réservation concernant l hotel ".$hotel->Nom." sont </br></h1>";
+    foreach($hotel->reservations as $reservation)
+    {
+       echo $reservation->id."<br>";
     }
 });
 

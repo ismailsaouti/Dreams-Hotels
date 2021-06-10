@@ -1,5 +1,6 @@
    @extends('layouts.app')
     @section('content')
+{{--resservation style  --}}
 	<style type="text/css">
 		body {
     background-image: linear-gradient(to right, #7B1FA2, #E91E63)
@@ -191,62 +192,82 @@
     opacity: 0.9
 }
 	</style>
+{{--reservation page  --}}
   <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
             <div class="row">
                 <div class="booking-form">
                     <div class="form-header">
-                        <h1>Make your reservation</h1>
+                        <h1>Réservez </h1>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
                     <form action="chambres">
-                        <div class="form-group"> <input class="form-control" type="text" placeholder="Country, ZIP, city..."> <span class="form-label">Destination</span> </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check In</span> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check out</span> </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     
                                     <select class="form-control" required>
-                                        <option value="" selected hidden>no of rooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Rooms</span> </div>
+                                        <option value="" selected hidden>Hôtel</option>
+                                        <option>Hôtel x</option>
+                                        <option>Hôtel x</option>
+                                        <option>Hôtel x</option>
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Hôtel</span> </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group"> <select class="form-control" required>
-                                        <option value="" selected hidden>no of adults</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Adults</span> </div>
+                                        <option value="" selected hidden>Chambre</option>
+                                        <option>chambre x</option>
+                                        <option>chambre x</option>
+                                        <option>chambre x</option>
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Chambre</span> </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group"> <select class="form-control" required>
-                                        <option value="" selected hidden>no of children</option>
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Children</span> </div>
+                                        <option value="" selected hidden>Nombre d'enfants</option>
+                                      <?php
+                                      for($i=0;$i<=9;$i++){  
+                                        echo "<option>$i</option>";
+                                         }  ?>
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Personne</span> </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email"> <span class="form-label">Email</span> </div>
+                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Date d'arrivée</span> </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter you Phone"> <span class="form-label">Phone</span> </div>
+                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Date de départ</span> </div>
                             </div>
                         </div>
-                        <div class="form-btn"> <button class="submit-btn">Book Now</button> </div>
+                        <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button> </div>
                     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>

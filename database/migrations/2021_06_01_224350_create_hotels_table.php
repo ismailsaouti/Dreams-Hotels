@@ -21,10 +21,8 @@ class CreateHotelsTable extends Migration
             $table->string('telephone');
             $table->text('description');
             $table->timestamps();
-        });
-        
+        });     
     }
-
     /**
      * Reverse the migrations.
      *
