@@ -10,15 +10,11 @@ class ReservationController extends Controller
 {
     //
     function save(Request $req){
-        //print_r($req->input());
-        //return redirect()->back();
+        //
         $date_arrive=$req->date_arrive;
         $date_depart=$req->date_depart;
         $nombre_personne=$req->nombre_personne;
         $nom_hotel=$req->hotel;
-         /* $res->hotel_id
-        $res->chambre_id
-        */
         $today = (string)date("Y-m-d");
         $arrive=(string)$date_arrive;
         if (date("Y-m-d") >= $date_arrive){
@@ -46,16 +42,23 @@ class ReservationController extends Controller
         $res->date_arrive=$date_arrive;
         $res->date_depart=$date_depart;
         $res->nombre_personne=$nombre_personne;
-        //$hotel = Hotel::find('Nom',);
-        // $hotel = Hotel::where('Nom',$nom_hotel);
-        // $res->hotel_id=$hotel->id;
+        $hotel = Hotel::where('Nom',$nom_hotel);
+    $hotels = DB::table('hotels')->get();
+     
+  foreach ($hotels as $hotel)
+
+          {
+         if($hotel->Nom==$nom_hotel){
+                      $res->hotel_id=$hotel->id;
+                                }
+                         }
+
         $res->save();   
         echo "<H1>Merci</H2>" ;
     }
 }
 function index(){
-    $hotels = DB::table('hotels')->get();
-        
+     $hotels = DB::table('hotels')->get();   
     return view('index',compact('hotels'));
 
 }

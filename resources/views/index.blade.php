@@ -209,7 +209,8 @@
                                 <div class="form-group">
                                     
                                     <select name="hotel" class="form-control" required>
-                                        <option value="" selected hidden>Hôtel</option>
+
+                                        <option value="" class="menu" selected hidden>Hôtel</option>
                                        <?php 
 
                                     foreach ($hotels as $hotel)
