@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('index');
 Route::get('/hotels', function () {
     return view('hotels');
 });
@@ -22,9 +22,6 @@ Route::get('/chambres', function () {
 });
 Route::get('/contact', function () {
     return view('contact');
-Route::get('/', function () {
-    return view('index');
-})->name('index');
 });
 Route::get('/offres', function () {
     return view('offres');
@@ -82,12 +79,12 @@ Route::get('chambredata',function(){
        echo $chambre->numero."<br>";}
     }*/
 //Many to many relationships between Chambres and Hotels
-    $hotel=hotel::find(1);
+   /* $hotel=hotel::find(1);
     echo "les réservation concernant l hotel ".$hotel->Nom." sont </br></h1>";
     foreach($hotel->reservations as $reservation)
     {
        echo $reservation->id."<br>";
-    }
+    }*/
 });
 
 

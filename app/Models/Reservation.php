@@ -13,7 +13,7 @@ class Reservation extends Model
         'date_arrive',
         'nombre_personne'
        /* 'hotel_id',
-        'chambre_id'*/
+        'chambre_id' */
     ];
     //One to many Reslationships (un hotel, plusieurs réserevation)
     public function Hotels(){

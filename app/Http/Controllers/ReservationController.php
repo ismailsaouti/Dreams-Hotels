@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Models\Hotel;
+use DB;
 class ReservationController extends Controller
 {
     //
@@ -13,6 +15,7 @@ class ReservationController extends Controller
         $date_arrive=$req->date_arrive;
         $date_depart=$req->date_depart;
         $nombre_personne=$req->nombre_personne;
+        $nom_hotel=$req->hotel;
          /* $res->hotel_id
         $res->chambre_id
         */
@@ -43,8 +46,17 @@ class ReservationController extends Controller
         $res->date_arrive=$date_arrive;
         $res->date_depart=$date_depart;
         $res->nombre_personne=$nombre_personne;
+        //$hotel = Hotel::find('Nom',);
+        // $hotel = Hotel::where('Nom',$nom_hotel);
+        // $res->hotel_id=$hotel->id;
         $res->save();   
         echo "<H1>Merci</H2>" ;
     }
+}
+function index(){
+    $hotels = DB::table('hotels')->get();
+        
+    return view('index',compact('hotels'));
+
 }
 }

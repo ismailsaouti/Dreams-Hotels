@@ -210,14 +210,21 @@
                                     
                                     <select name="hotel" class="form-control" required>
                                         <option value="" selected hidden>Hôtel</option>
-                                        <option>Hôtel x</option>
-                                        <option>Hôtel x</option>
-                                        <option>Hôtel x</option>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Hôtel</span> </div>
+                                       <?php 
+
+                                    foreach ($hotels as $hotel)
+
+                                        {
+                                        echo "<option>$hotel->Nom</option>";
+                                                            }
+
+                                                            ?>
+                                    </select>
+                                     <span class="select-arrow"></span> <span class="form-label">Hôtel</span> </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group"> <select  name='chambre' class="form-control" required>
-                                        <option value="" selected hidden>Chambre</option>
+                                       <option value="" selected hidden>Chambre</option>
                                         <option>chambre x</option>
                                         <option>chambre x</option>
                                         <option>chambre x</option>
@@ -235,10 +242,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <input name="date_arrive" class="form-control" type="date" required> <span class="form-label">Date d'arrivée</span> </div>
+                                <div class="form-group"> <input name="date_arrive" class="form-control" type="date" required> <span class="form-label">Arrivée</span> </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"> <input name="date_depart" class="form-control" type="date" required> <span class="form-label">Date de départ</span> </div>
+                                <div class="form-group"> <input name="date_depart" class="form-control" type="date" required> <span class="form-label"> Départ</span> </div>
                             </div>
                         </div>
                         <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button> 
