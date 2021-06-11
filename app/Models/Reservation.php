@@ -9,11 +9,14 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'date_resevation',
         'date_depart', 
-        'date_arrive'
+        'date_arrive',
+        'nombre_personne'
+       /* 'hotel_id',
+        'chambre_id'*/
     ];
-    /*public function Hotels(){
-        return $this->hasMany("App\Models\Hotel");
-    }*/
+    //One to many Reslationships (un hotel, plusieurs réserevation)
+    public function Hotels(){
+        return $this->belongsTo("App\Models\Hotel");
+    }
 }

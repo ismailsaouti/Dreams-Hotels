@@ -24,6 +24,7 @@ class Hotel extends Model
 
         return $this->hasMany("App\Models\Chambre");
     }  
+    //One to many (One hotel, Many reservation )
     public function reservations()
     {
 

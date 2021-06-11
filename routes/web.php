@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
 
 Route::get('/hotels', function () {
     return view('hotels');
@@ -25,6 +22,9 @@ Route::get('/chambres', function () {
 });
 Route::get('/contact', function () {
     return view('contact');
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 });
 Route::get('/offres', function () {
     return view('offres');
@@ -93,6 +93,7 @@ Route::get('chambredata',function(){
 
 
 
+Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])->name('save');
 
 
 Auth::routes();

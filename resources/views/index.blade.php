@@ -3,12 +3,12 @@
 {{--resservation style  --}}
 	<style type="text/css">
 		body {
-    background-image: linear-gradient(to right, #7B1FA2, #E91E63)
-}
+/*    background-image: linear-gradient(to right, #7B1FA2, #E91E63)
+*/}
 
 .section {
     position: relative;
-    height: 100vh
+    height: 100vh;
 }
 
 .section .section-center {
@@ -203,21 +203,12 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-                    <form action="chambres">
+                    <form action="{{ Route('save') }}" name="reservation" method="get">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     
-                                    <select class="form-control" required>
+                                    <select name="hotel" class="form-control" required>
                                         <option value="" selected hidden>Hôtel</option>
                                         <option>Hôtel x</option>
                                         <option>Hôtel x</option>
@@ -225,7 +216,7 @@
                                     </select> <span class="select-arrow"></span> <span class="form-label">Hôtel</span> </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
+                                <div class="form-group"> <select  name='chambre' class="form-control" required>
                                         <option value="" selected hidden>Chambre</option>
                                         <option>chambre x</option>
                                         <option>chambre x</option>
@@ -233,8 +224,8 @@
                                     </select> <span class="select-arrow"></span> <span class="form-label">Chambre</span> </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
-                                        <option value="" selected hidden>Nombre d'enfants</option>
+                                <div class="form-group"> <select class="form-control" name="nombre_personne" required>
+                                        <option value="" selected hidden>Nombre de personnes</option>
                                       <?php
                                       for($i=0;$i<=9;$i++){  
                                         echo "<option>$i</option>";
@@ -244,26 +235,16 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Date d'arrivée</span> </div>
+                                <div class="form-group"> <input name="date_arrive" class="form-control" type="date" required> <span class="form-label">Date d'arrivée</span> </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Date de départ</span> </div>
+                                <div class="form-group"> <input name="date_depart" class="form-control" type="date" required> <span class="form-label">Date de départ</span> </div>
                             </div>
                         </div>
-                        <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button> </div>
+                        <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button> 
+                            
+                        </div>
                     </form>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

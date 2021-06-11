@@ -15,7 +15,6 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->date('date_resevation');
             $table->date('date_depart');
             $table->date('date_arrive');
             $table->foreignId('user_id')->references('id')->on('users');
