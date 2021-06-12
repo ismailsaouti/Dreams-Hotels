@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('index'); 
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
 Route::get('/chambres', function () {
     return view('chambres');

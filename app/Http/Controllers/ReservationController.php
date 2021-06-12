@@ -81,5 +81,6 @@ function index(){
      $chambres = DB::table('chambres')->get();   
      return view('index',compact('hotels'),compact('chambres'));
 
+
 }
 }
