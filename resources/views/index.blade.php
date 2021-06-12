@@ -214,7 +214,6 @@
                                        <?php 
 
                                     foreach ($hotels as $hotel)
-
                                         {
                                         echo "<option>$hotel->Nom</option>";
                                                             }
@@ -224,11 +223,19 @@
                                      <span class="select-arrow"></span> <span class="form-label">Hôtel</span> </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group"> <select  name='chambre' class="form-control" required>
+                                <div class="form-group">
+                                    <select  name='chambre' class="form-control" required>
                                        <option value="" selected hidden>Chambre</option>
-                                        <option>chambre x</option>
-                                        <option>chambre x</option>
-                                        <option>chambre x</option>
+                                        <?php 
+
+                                    foreach ($chambres as $chambre)
+
+                                        {
+                                        echo "<option>$chambre->type</option>";
+                                                            }
+
+                                                            ?>
+                                    </select>
                                     </select> <span class="select-arrow"></span> <span class="form-label">Chambre</span> </div>
                             </div>
                             <div class="col-md-4">

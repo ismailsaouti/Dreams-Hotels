@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Hotel;
+use App\Models\Chambre;
 use DB;
 class ReservationController extends Controller
 {
@@ -15,6 +16,7 @@ class ReservationController extends Controller
         $date_depart=$req->date_depart;
         $nombre_personne=$req->nombre_personne;
         $nom_hotel=$req->hotel;
+        $chambre_type=$req->chambre;
         $today = (string)date("Y-m-d");
         $arrive=(string)$date_arrive;
         if (date("Y-m-d") >= $date_arrive){
@@ -55,11 +57,30 @@ class ReservationController extends Controller
 
         $res->save();   
         echo "<H1>Merci</H2>" ;
+
+
+        $resh = new Reservation;
+        $resh->date_arrive=$date_arrive;
+        $resh->date_depart=$date_depart;
+        $resh->nombre_personne=$nombre_personne;
+        $chambre = Chambre::where('type',$chambre_type);
+    $chambres = DB::table('chambres')->get();
+     
+  foreach ($chambres as $chambre)
+
+          {
+         if($chambre->type==$chambre_type){
+                      $resh->chambre_id=$chambre->id;
+                                }
+                         }
+
+        $resh->save();   
     }
 }
 function index(){
-     $hotels = DB::table('hotels')->get();   
-    return view('index',compact('hotels'));
+     $hotels = DB::table('hotels')->get();  
+     $chambres = DB::table('chambres')->get();   
+    return view('index',compact('hotels'),compact('chambres'));
 
 }
 }
