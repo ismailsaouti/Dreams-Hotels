@@ -2,7 +2,7 @@
     @section('content')
 	
     <style type="text/css">
-    	section#content {
+    	#content {
     min-height: 400px;
     padding-top: 40px;
     text-align: left;
@@ -49,16 +49,13 @@
 }
     </style>
     <div class="jumbotron">
-    	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <div class="vc_row wpb_row vc_inner vc_row-fluid section destinations inner-container">
     <div class="container">
         <div class="row">
             <div class="wpb_column col-sm-12">
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
-                        <h2>Popular Hotels</h2>
+                        <h2>Nos Hotels</h2>
                         <div class="row hotel image-box listing-style2">
                             <?php
                           foreach ($hotels as $hotel)
