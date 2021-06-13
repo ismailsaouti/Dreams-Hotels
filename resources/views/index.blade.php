@@ -212,12 +212,12 @@
 
                                         <option value="" class="menu" selected hidden>Hôtel</option>
                                        <?php 
-
+                                       if (!empty($hotels)){
                                     foreach ($hotels as $hotel)
 
                                         {
                                         echo "<option>$hotel->Nom</option>";
-                                                            }
+                                                            }}
 
                                                             ?>
                                     </select>
@@ -226,9 +226,17 @@
                             <div class="col-md-4">
                                 <div class="form-group"> <select  name='chambre' class="form-control" required>
                                        <option value="" selected hidden>Chambre</option>
-                                        <option>chambre x</option>
-                                        <option>chambre x</option>
-                                        <option>chambre x</option>
+                                        <?php 
+                                     if (!empty($chambres)){
+                                    foreach ($chambres as $chambre)
+
+                                        {
+                                        echo "<option>$chambre->type</option>";
+                                                            }}
+
+                                                            ?>
+
+                                                            ?>
                                     </select> <span class="select-arrow"></span> <span class="form-label">Chambre</span> </div>
                             </div>
                             <div class="col-md-4">

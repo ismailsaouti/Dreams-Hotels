@@ -52,7 +52,6 @@ class ReservationController extends Controller
      
         //Recherche pour trouver id d'un hotel à partir de son nom   
         foreach ($hotels as $hotel)
-
           {
          if($hotel->Nom==$nom_hotel){
                       $res->hotel_id=$hotel->id;
@@ -63,24 +62,20 @@ class ReservationController extends Controller
         //Répresenter tous les chambres avec tous les colonnes
         $chambres = DB::table('chambres')->get();
         //Recherche pour trouver id d'une chambre à partir de son type   
-        foreach ($chambres as $chambre)
-
-          {
-         if($chambre->type==$chambre_type){
-                      $res->chambre_id=$chambre->id;
+        foreach ($chambres as $chambre){
+         if($chambre->type==$chambre_type){$res->chambre_id=$chambre->id;}
                                 }
-                         }
 
         $res->save();   
-        echo "<H1>Merci</H2>" ;
+            return redirect('/hotel-post');
     }
 }
 
 function index(){
      $hotels = DB::table('hotels')->get();  
      $chambres = DB::table('chambres')->get();   
-     return view('index',compact('hotels'),compact('chambres'));
+     return view('index',compact('hotels') ,compact('chambres'));
 
 
-}
+}                    
 }

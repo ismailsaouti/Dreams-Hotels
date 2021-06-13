@@ -15,4 +15,7 @@ class HotelController extends Controller
 
 
      }
+     function hotelsPosts(){ 
+        return view('hotelpost');
+     }
 }
