@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -19,7 +18,6 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-
 <body>
   <header>
     <div class="logo">
@@ -27,7 +25,7 @@
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul>
-              <li><a href="/">Accueil</a></li>
+              <li><a href="{{ route('index') }}">Accueil</a></li>
               <li><a href="hotels">Nos Hôtels</a></li>
               <li><a href="chambres">Chambres</a></li> 
                                <!-- Authentication Links -->

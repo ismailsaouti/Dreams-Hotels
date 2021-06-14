@@ -1,273 +1,248 @@
    @extends('layouts.app')
     @section('content')
-{{--resservation style  --}}
-	<style type="text/css">
-		body {
-    background-image: url('https://i.imgur.com/8z1tx3u.jpg');
-}
 
-.section {
-    position: relative;
-    height: 100vh;
-}
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
 
-.section .section-center {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
+    <!-- Post Slider -->
+    <div class="post-slider">
+      <h1 class="slider-title">Trending Posts</h1>
+      <i class="fas fa-chevron-left prev"></i>
+      <i class="fas fa-chevron-right next"></i>
 
-#booking {
-    font-family: 'Raleway', sans-serif
-}
+      <div class="post-wrapper">
 
-.booking-form {
-    position: relative;
-    max-width: 642px;
-    width: 100%;
-    margin: auto;
-    padding: 40px;
-    overflow: hidden;
-    background-image: linear-gradient(to right, #7B1FA2, #E91E63);
-    background-size: cover;
-    border-radius: 5px;
-    z-index: 20
-}
-
-.booking-form::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: -1
-}
-
-.booking-form .form-header {
-    text-align: center;
-    position: relative;
-    margin-bottom: 30px
-}
-
-.booking-form .form-header h1 {
-    font-weight: 700;
-    text-transform: capitalize;
-    font-size: 42px;
-    margin: 0px;
-    color: #fff
-}
-
-.booking-form .form-group {
-    position: relative;
-    margin-bottom: 30px
-}
-
-.booking-form .form-control {
-    background-color: rgba(255, 255, 255, 0.2);
-    height: 60px;
-    padding: 0px 25px;
-    border: none;
-    border-radius: 40px;
-    color: #fff;
-    -webkit-box-shadow: 0px 0px 0px 2px transparent;
-    box-shadow: 0px 0px 0px 2px transparent;
-    -webkit-transition: 0.2s;
-    transition: 0.2s
-}
-
-.booking-form .form-control::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.5)
-}
-
-.booking-form .form-control:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5)
-}
-
-.booking-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5)
-}
-
-.booking-form .form-control:focus {
-    -webkit-box-shadow: 0px 0px 0px 2px #ff8846;
-    box-shadow: 0px 0px 0px 2px #ff8846
-}
-
-.booking-form input[type="date"].form-control {
-    padding-top: 16px
-}
-
-.booking-form input[type="date"].form-control:invalid {
-    color: rgba(255, 255, 255, 0.5)
-}
-
-.booking-form input[type="date"].form-control+.form-label {
-    opacity: 1;
-    top: 10px
-}
-
-.booking-form select.form-control {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none
-}
-
-.booking-form select.form-control:invalid {
-    color: rgba(255, 255, 255, 0.5)
-}
-
-.booking-form select.form-control+.select-arrow {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 32px;
-    line-height: 32px;
-    height: 32px;
-    text-align: center;
-    pointer-events: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 14px
-}
-
-.booking-form select.form-control+.select-arrow:after {
-    content: '\279C';
-    display: block;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg)
-}
-
-.booking-form select.form-control option {
-    color: #000
-}
-
-.booking-form .form-label {
-    position: absolute;
-    top: -10px;
-    left: 25px;
-    opacity: 0;
-    color: #ff8846;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.3px;
-    height: 15px;
-    line-height: 15px;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all
-}
-
-.booking-form .form-group.input-not-empty .form-control {
-    padding-top: 16px
-}
-
-.booking-form .form-group.input-not-empty .form-label {
-    opacity: 1;
-    top: 10px
-}
-
-.booking-form .submit-btn {
-    color: #fff;
-    background-color: #e35e0a;
-    font-weight: 700;
-    height: 60px;
-    padding: 10px 30px;
-    width: 100%;
-    border-radius: 40px;
-    border: none;
-    text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 1.3px;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all
-}
-
-.booking-form .submit-btn:hover,
-.booking-form .submit-btn:focus {
-    opacity: 0.9
-}
-	</style>
-{{--reservation page  --}}
-  <div id="booking" class="section">
-    <div class="section-center">
-        <div class="container">
-            <div class="row">
-                <div class="booking-form">
-                    <div class="form-header">
-                        <h1>Réservez </h1>
-                    </div>
-
-
-                    <form action="{{ Route('save') }}" name="reservation" method="get">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    
-                                    <select name="hotel" class="form-control" required>
-
-                                        <option value="" class="menu" selected hidden>Hôtel</option>
-                                       <?php 
-                                       if (!empty($hotels)){
-                                    foreach ($hotels as $hotel)
-
-                                        {
-                                        echo "<option>$hotel->Nom</option>";
-                                                            }}
-
-                                                            ?>
-                                    </select>
-                                     <span class="select-arrow"></span> <span class="form-label">Hôtel</span> </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group"> <select  name='chambre' class="form-control" required>
-                                       <option value="" selected hidden>Chambre</option>
-                                        <?php 
-                                     if (!empty($chambres)){
-                                    foreach ($chambres as $chambre)
-
-                                        {
-                                        echo "<option>$chambre->type</option>";
-                                                            }}
-
-                                                            ?>
-
-                                                            ?>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Chambre</span> </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" name="nombre_personne" required>
-                                        <option value="" selected hidden>Nombre de personnes</option>
-                                      <?php
-                                      for($i=0;$i<=9;$i++){  
-                                        echo "<option>$i</option>";
-                                         }  ?>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Personne</span> </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <input name="date_arrive" class="form-control" type="date" required> <span class="form-label">Arrivée</span> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <input name="date_depart" class="form-control" type="date" required> <span class="form-label"> Départ</span> </div>
-                            </div>
-                        </div>
-                        <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button> 
-                            
-                        </div>
-                    </form>
-
-
-
-
-                </div>
-            </div>
+        <div class="post">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+          <div class="post-info">
+            <h4><a href="single.html">One day your life will flash before your eyes</a></h4>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 8, 2019</i>
+          </div>
         </div>
+
+        <div class="post">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+          <div class="post-info">
+            <h4><a href="single.html">One day your life will flash before your eyes</a></h4>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 8, 2019</i>
+          </div>
+        </div>
+
+        <div class="post">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+          <div class="post-info">
+            <h4><a href="single.html">One day your life will flash before your eyes</a></h4>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 8, 2019</i>
+          </div>
+        </div>
+
+        <div class="post">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+          <div class="post-info">
+            <h4><a href="single.html">One day your life will flash before your eyes</a></h4>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 8, 2019</i>
+          </div>
+        </div>
+
+        <div class="post">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+          <div class="post-info">
+            <h4><a href="single.html">One day your life will flash before your eyes</a></h4>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 8, 2019</i>
+          </div>
+        </div>
+
+
+      </div>
+
     </div>
-</div>
+    <!-- // Post Slider -->
+
+    <!-- Content -->
+    <div class="content clearfix">
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <h1 class="recent-post-title">Recent Posts</h1>
+        
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- // Main Content -->
+
+      <div class="sidebar">
+
+        <div class="section search">
+          <h2 class="section-title">Search</h2>
+          <form action="index.html" method="post">
+            <input type="text" name="search-term" class="text-input" placeholder="Search...">
+          </form>
+        </div>
+
+
+        <div class="section topics">
+          <h2 class="section-title">Topics</h2>
+          <ul>
+            <li><a href="#">Poems</a></li>
+            <li><a href="#">Quotes</a></li>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Biography</a></li>
+            <li><a href="#">Motivation</a></li>
+            <li><a href="#">Inspiration</a></li>
+            <li><a href="#">Life Lessons</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- // Content -->
+
+  </div>
+  <!-- // Page Wrapper -->
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="footer-content">
+
+      <div class="footer-section about">
+        <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+        <p>
+          AwaInspires is a fictional blog conceived for the purpose of a tutorial on YouTube.
+          However, Awa has a blog called pieceofadvice.org where he writes truly inspiring stuff.
+        </p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@awainspires.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <br>
+        <ul>
+          <a href="#">
+            <li>Events</li>
+          </a>
+          <a href="#">
+            <li>Team</li>
+          </a>
+          <a href="#">
+            <li>Mentores</li>
+          </a>
+          <a href="#">
+            <li>Gallery</li>
+          </a>
+          <a href="#">
+            <li>Terms and Conditions</li>
+          </a>
+        </ul>
+      </div>
+
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <br>
+        <form action="index.html" method="post">
+          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn">
+            <i class="fas fa-envelope"></i>
+            Send
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; codingpoets.com | Designed by Awa Melvine
+    </div>
+  </div>
+  <!-- // footer -->
+
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Slick Carousel -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
     @endsection

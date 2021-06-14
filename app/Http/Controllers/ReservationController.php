@@ -71,7 +71,7 @@ class ReservationController extends Controller
     }
 }
 
-function index(){
+function reservation(){
      $hotels = DB::table('hotels')->get();  
      $chambres = DB::table('chambres')->get();   
      return view('index',compact('hotels') ,compact('chambres'));
