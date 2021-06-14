@@ -3,8 +3,8 @@
 {{--resservation style  --}}
 	<style type="text/css">
 		body {
-/*    background-image: linear-gradient(to right, #7B1FA2, #E91E63)
-*/}
+    background-image: url('https://i.imgur.com/8z1tx3u.jpg');
+}
 
 .section {
     position: relative;
@@ -31,7 +31,7 @@
     margin: auto;
     padding: 40px;
     overflow: hidden;
-    background-image: url('https://i.imgur.com/8z1tx3u.jpg');
+    background-image: linear-gradient(to right, #7B1FA2, #E91E63);
     background-size: cover;
     border-radius: 5px;
     z-index: 20

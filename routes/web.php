@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('offres');
+});
 Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])->name('save');
-Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('index'); 
+Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'index'])->name('index'); 
 Route::get('/hotel-post', [App\Http\Controllers\HotelController::class, 'hotelsPosts'])->name('hotels_posts');
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
 Route::get('/chambres', function () {
@@ -23,10 +26,6 @@ Route::get('/chambres', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/offres', function () {
-    return view('offres');
-});
-
 Route::get('register',function(){
     return view('auth.register');
 })->name('register');

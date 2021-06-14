@@ -1,36 +1,46 @@
  <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
+  <title>{{ config('app.name', 'Laravel') }}</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- Style --> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
-
-  <!-- Custom Styling -->
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+  <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <!-- Scripts -->  
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.css"></script>
 </head>
-
 <body>
-  <header>
-    <div class="logo">
-      <h1 class="logo-text"><span>Dreams</span>Hotel</h1>
-    </div>
-    <i class="fa fa-bars menu-toggle"></i>
-    <ul>
-              <li><a href="/">Accueil</a></li>
+
+
+  <div class="container">
+  	   <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ Route('index') }}">Dreams Hôtels</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
               <li><a href="hotels">Nos Hôtels</a></li>
-              <li><a href="chambres">Chambres</a></li> 
-                               <!-- Authentication Links -->
+  			 	    <li><a href="chambres">Chambres</a></li> 
+  			 	    <li><a href="offres">Offres</a></li> 
+  			 	    <li><a href="contact">Contact</a></li>
+          </ul>
+           <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -62,24 +72,14 @@
                                 </div>
                             </li>
                         @endguest
-                    
-      <!-- <li>
-        <a href="#">
-          <i class="fa fa-user"></i>
-          Awa Melvine
-          <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-        </a>
-        <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#" class="logout">Logout</a></li>
-        </ul>
-      </li> -->
-    </ul>
-  </header>	  
+                    </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
  <main class="py-4">
             @yield('content')
         </main>
   </div> <!--Container-->
   	
 </body>
-</html>				
+</html>	
