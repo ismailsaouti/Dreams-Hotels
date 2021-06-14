@@ -74,11 +74,8 @@
       <!-- Main Content -->
       <div class="main-content">
         <h1 class="recent-post-title">Recent Posts</h1>
-        <?php
-                 for ($i=0; $i <5 ; $i++) { 
-                   // code...
-                                $message=<<<DELIMETER
-                                         <div class="post clearfix">
+
+        <div class="post clearfix">
           <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
           <div class="post-preview">
             <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
@@ -91,9 +88,52 @@
             </p>
             <a href="single.html" class="btn read-more">Read More</a>
           </div>
-                            DELIMETER;
-                            echo $message; ?>
-                 }
+        </div>
+
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <i class="far fa-user"> Awa Melvine</i>
+            &nbsp;
+            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <p class="preview-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Exercitationem optio possimus a inventore maxime laborum.
+            </p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+      </div>
       <!-- // Main Content -->
 
       <div class="sidebar">
@@ -189,6 +229,7 @@
     <div class="footer-bottom">
       &copy; codingpoets.com | Designed by Awa Melvine
     </div>
+    @endsection
   </div>
   <!-- // footer -->
 
@@ -205,4 +246,3 @@
 </body>
 
 </html>
-    @endsection
