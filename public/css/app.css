@@ -43,39 +43,4 @@
 .image-box.box>.details {
     padding: 12px 15px
 }
- body{
-      background: #A9A9A9;
-    }
-    .navbar-inverse{
-      background-image: linear-gradient(to left, #AA076B, #61045F); 
-      padding: 8px;
-      font-size: 17px;
-      color: #ffffff;
-      flex: 1 1 40rem;
-      align-items: center;
-    }
-    .navbar-nav{
-      padding: 0 0 0 20px;
-    }
-    .navbar-right{
-      margin-right: 100px;
-    }
-    a{
-      font-size: 20px;
-      color: #ffffff;
-    }  
-    nav ul{
-      min-height: 8vh;
-      justify-content: space-around;;
-      display: flex;
-      }
-      .card {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-         margin-top: 130px;
-         margin-left:180px ;
-         margin-right: ;
-         margin-bottom: ;
-          }
-  
-}
+
