@@ -15,7 +15,7 @@ class ReservationController extends Controller
         $date_arrive=$req->date_arrive;
         $date_depart=$req->date_depart;
         $nombre_personne=$req->nombre_personne;
-        $nom_hotel=$req->hotel;
+      //  $nom_hotel=$req->hotel;
         $chambre_type=$req->chambre;
 
         //Erreurs possible effectues par le client
@@ -46,17 +46,17 @@ class ReservationController extends Controller
         $res->date_depart=$date_depart;
         $res->nombre_personne=$nombre_personne;
         //Cherechre pour trouver un hotel a partir de son nom
-         $hotel = Hotel::where('Nom',$nom_hotel);
+        // $hotel = Hotel::where('Nom',$nom_hotel);
         //Répresenter tous les hotels avec tous les colonnes
-         $hotels = DB::table('hotels')->get();
+         //$hotels = DB::table('hotels')->get();
      
         //Recherche pour trouver id d'un hotel à partir de son nom   
-        foreach ($hotels as $hotel)
+        /*foreach ($hotels as $hotel)
           {
          if($hotel->Nom==$nom_hotel){
                       $res->hotel_id=$hotel->id;
                                 }
-                         }
+                         }*/
         //Cherechre pour trouver un chambre a partir de son type
         $chambre = Chambre::where('type',$chambre_type);
         //Répresenter tous les chambres avec tous les colonnes
@@ -66,15 +66,17 @@ class ReservationController extends Controller
          if($chambre->type==$chambre_type){$res->chambre_id=$chambre->id;}
                                 }
 
-        $res->save();   
-            return redirect('/hotel-post');
+        $res->save();
+             echo "Merci";   
+       //
+        return redirect('/hotel-post');
     }
 }
 
 function reservation(){
      $hotels = DB::table('hotels')->get();  
      $chambres = DB::table('chambres')->get();   
-     return view('index',compact('hotels') ,compact('chambres'));
+     return view('reservation',compact('hotels') ,compact('chambres'));
 
 
 }                    

@@ -9,6 +9,11 @@ use DB;
 class HotelController extends Controller
 {
     //
+
+     function index(){
+    return view('index');
+
+     }
      function hotels(){
         $hotels = DB::table('hotels')->get();   
     return view('hotels',compact('hotels'));
@@ -17,5 +22,7 @@ class HotelController extends Controller
      }
      function hotelsPosts(){ 
         return view('hotelpost');
+
+
      }
 }
