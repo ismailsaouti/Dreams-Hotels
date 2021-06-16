@@ -21,25 +21,16 @@ class ReservationController extends Controller
         //Erreurs possible effectues par le client
         $today = (string)date("Y-m-d");
         $arrive=(string)$date_arrive;
-        if (date("Y-m-d") >= $date_arrive){
+        if (date("Y-m-d") > $date_arrive){
             $errors[]="Veuillez vérifier la date d'arrivée ";            
         }
         if ($date_arrive > $date_depart){
             $errors[]="La date de départ avant la date d'arrivée!";            
         }
        if (!empty($errors)){ //test false si on n'a pas d'erreur c-à-d $errors!=Null
-       $message=" ";
-          foreach ($errors as $error){ 
-            
-                  $messages=<<<DELIMETER
-                <script> .close{position: absolute;}</script>
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <strong>Attention!  </strong>  $error
-                </div>
-                DELIMETER;
-            }
-            return view('index').$messages;
+       
+        $chambres = DB::table('chambres')->get();  
+       return view('reservation',compact('errors'),compact('chambres'));
        }else{
         $res = new Reservation;
         $res->date_arrive=$date_arrive;

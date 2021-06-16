@@ -2,6 +2,12 @@
     @section('content')
 
 {{--reservation page  --}}
+<style>
+    .booking-form .submit-btn {
+    color: #fff;
+    background-color: #006669;
+}
+</style>
   <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
@@ -39,13 +45,13 @@
                             </div --}}
 
                             <div class="col-md-4">
-                                <div class="form-group"> <select  name='chambre' class="form-control" required>
+                                <div class="form-group"> <strong> &nbsp;</strong><select  name='chambre' class="form-control" required>
                                        <option value="" selected hidden>Chambre</option>
                                         <?php 
                                      if (!empty($chambres)){
                                     foreach ($chambres as $chambre)
 
-                                        {
+                                        { 
                                         echo "<option>$chambre->type</option>";
                                                             }}
 
@@ -56,8 +62,8 @@
                             </div>
 
 
-                            <div class="col-md-3">
-                                <div class="form-group"> <select class="form-control" name="nombre_personne" required>
+                            <div class="col-md-4">
+                                <div class="form-group"> <strong> &nbsp;</strong><select class="form-control" name="nombre_personne" required>
                                         <option value="" selected hidden>Nombre de personnes</option>
                                       <?php
                                       for($i=0;$i<=9;$i++){  
@@ -66,19 +72,32 @@
                                     </select>  </div>
                             </div>
                             <div class="col-md-2">
-                                <div class="form-group"> <input name="date_arrive" class="form-control" type="date" required></div>
+                                <div class="form-group"><strong>Arrivée</strong><input name="date_arrive" class="form-control" type="date" required ></div>
                             </div>
                               <div class="col-md-2">
-                                <div class="form-group"> <input name="date_depart" class="form-control" type="date" required></div>
+                                <div class="form-group"> <strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
                             </div>
 
                         </div> {{-- Class row --}}
                         <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button>
                          
-                    </form>
+                    </form>                  
+                   <?php 
+                  $messages=' ';
+                 if (!empty($errors)){
+                             foreach ($errors as $error){ 
+                  $messages=<<<DELIMETER
+                <script> .close{position: absolute;}</script>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>Attention! &nbsp;  </strong>  $error
+                </div>
+                DELIMETER;
+                      }
+            echo $messages;
 
-
-
+                                        }
+                   ?>
 
                 </div>
             </div>
