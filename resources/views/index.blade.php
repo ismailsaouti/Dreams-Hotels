@@ -21,10 +21,7 @@
                   <div class="post-info">
                     <h4><a href="single.html">hotel->description</a></h4>
                     <i class="fas fa-map-marker-alt"> $hotel->ville</i>
-                  <p class="preview-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Exercitationem optio possimus a inventore maxime laborum.
-                  </p>
+                  <p class="preview-text"> $hotel->description </p>
                   </div>
                 </div>
 DELIMETER;
@@ -56,10 +53,7 @@ DELIMETER;
             <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
                <i class="fas fa-map-marker-alt">&nbsp;$hotel->ville</i>
             &nbsp;
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
+            <p class="preview-text">$hotel->description</p>
             <a href="single.html" class="btn read-more">Read More</a>
           </div>
         </div>
