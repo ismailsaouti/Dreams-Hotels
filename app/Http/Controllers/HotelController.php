@@ -13,8 +13,9 @@ class HotelController extends Controller
      function index(){
 
         $hotels = DB::table('hotels')->get();   
+        $chambres = DB::table('chambres')->get();   
 
-    return view('index',compact('hotels'));
+    return view('index',compact('hotels'),compact('chambres'));
 
      }
      function hotels(){

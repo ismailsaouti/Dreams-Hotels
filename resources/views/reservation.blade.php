@@ -3,10 +3,19 @@
 
 {{--reservation page  --}}
 <style>
-    .booking-form .submit-btn {
+.booking-form .submit-btn {
     color: #fff;
     background-color: #006669;
+    font-weight:500;
+    height: 40px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border : none;
+    text-transform: capitalize ;
+    font-size: 16px;
+    letter-spacing: 1.3px 
 }
+
 </style>
   <div id="booking" class="section">
     <div class="section-center">

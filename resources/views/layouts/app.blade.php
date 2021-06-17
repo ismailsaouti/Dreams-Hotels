@@ -101,7 +101,7 @@
       </div>
 
       <div class="footer-section links">
-        <h2>Quick Links</h2>
+        <h2>Liens</h2>
         <br>
         <ul>
           <a href="#">
@@ -126,11 +126,11 @@
         <h2>Contactez-nous</h2>
         <br>
         <form action="index.html" method="post">
-          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
-          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <input type="email" name="email" class="text-input contact-input" placeholder="Votre email...">
+          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Votre message..."></textarea>
           <button type="submit" class="btn btn-big contact-btn">
             <i class="fas fa-envelope"></i>
-            Send
+            Envoyez
           </button>
         </form>
       </div>
