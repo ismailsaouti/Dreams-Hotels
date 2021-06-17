@@ -5,39 +5,57 @@
   <div class="page-wrapper">
 
     <!-- Post Slider -->
-    <div class="post-slider">
-      <h1 class="slider-title">Explorez Nos Hôtels</h1>
-      <i class="fas fa-chevron-left prev"></i>
-      <i class="fas fa-chevron-right next"></i>
+            <div class="post-slider">
+              <h1 class="slider-title" style="color:rgb(0,132,137) ;">Explorez Nos Hôtels</h1>
+              <i class="fas fa-chevron-left prev"></i>
+              <i class="fas fa-chevron-right next"></i>
+              <div class="post-wrapper">
+   <?php 
+    if (!empty($hotels)){
+        foreach ($hotels as $hotel){
+          $messages=<<<DELIMETER
 
-      <div class="post-wrapper">
 
-        <div class="post">
-          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
-          <div class="post-info">
-            <h4><a href="single.html">hotel->description</a></h4>
-            <i class="fas fa-map-marker-alt"> Fnideq</i>
-          </div>
-        </div>
-      </div>
-
-    </div>
+                <div class="post">
+                  <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+                  <div class="post-info">
+                    <h4><a href="single.html">hotel->description</a></h4>
+                    <i class="fas fa-map-marker-alt"> $hotel->ville</i>
+                  <p class="preview-text">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Exercitationem optio possimus a inventore maxime laborum.
+                  </p>
+                  </div>
+                </div>
+DELIMETER;
+     echo $messages;
+     }
+    }
+  ?>
+              </div>
+            </div>
     <!-- // Post Slider -->
 
     <!-- Content -->
     <div class="content clearfix">
 
       <!-- Main Content -->
-      <div class="main-content">
-        <h1 class="recent-post-title">Trouvez des offres sur des hôtels</h1>
+            <div class="main-content">
+              <h1 class="recent-post-title"  style="color:rgb(0,132,137) ;">Trouvez des offres sur des hôtels</h1>
+    <?php 
+
+    if (!empty($hotels)){
+        foreach ($hotels as $hotel){
+          $messages=<<<DELIMETER
+         
+
 
         <div class="post clearfix">
           <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
           <div class="post-preview">
             <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="fas fa-map-marker-alt"> hotel->ville</i>
+               <i class="fas fa-map-marker-alt">&nbsp;$hotel->ville</i>
             &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
             <p class="preview-text">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Exercitationem optio possimus a inventore maxime laborum.
@@ -45,8 +63,13 @@
             <a href="single.html" class="btn read-more">Read More</a>
           </div>
         </div>
-
-      <!-- // Main Content -->
+DELIMETER;
+     echo $messages;
+     }
+    }
+  ?>
+        </div>
+   <!-- // Main Content -->
 
       <div class="sidebar">
 

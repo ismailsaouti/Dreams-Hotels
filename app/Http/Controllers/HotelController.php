@@ -11,11 +11,13 @@ class HotelController extends Controller
     //
 
      function index(){
-    return view('index');
+
+        $hotels = DB::table('hotels')->get();   
+
+    return view('index',compact('hotels'));
 
      }
      function hotels(){
-        $hotels = DB::table('hotels')->get();   
     return view('hotels',compact('hotels'));
 
 

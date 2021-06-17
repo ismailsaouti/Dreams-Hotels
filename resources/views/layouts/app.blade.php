@@ -90,7 +90,7 @@
         </p>
         <div class="contact">
           <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
-          <span><i class="fas fa-envelope"></i> &nbsp; info@awainspires.com</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@dreamshotel.com</span>
         </div>
         <div class="socials">
           <a href=""><i class="fab fa-facebook"></i></a>
