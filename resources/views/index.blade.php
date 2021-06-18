@@ -1,28 +1,13 @@
    @extends('layouts.app')
     @section('content')
 {{-- reservtion form --}}
-<style>
-.booking-form .submit-btn {
-    color: #fff;
-    background-color: #006669;
-    font-weight:600;
-    height: 35px;
-    padding-right: 50px;
-    padding-left: 50px;
-    border-radius: 10px;
-    border : none;
-    text-transform: capitalize ;
-    font-size: 16px;
-    letter-spacing: 1.3px; 
-} 
-</style>
 <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
             <div class="row">
                 <div class="booking-form">
                     <div class="form-header">
-                        <h2 style="color:rgb(0,132,137) ;">Réservez Maintenant</h2>
+                        <h2 style="color:rgb(0,53,128) ;">Réservez Maintenant</h2>
                     </div>
 
 
@@ -44,10 +29,18 @@
                                     foreach ($hotels as $hotel)
 
                                         {
-                                        echo "<option>$hotel->Nom</option>";
-                                                            }}
+                                              {  
+                                     $m=<<<DELIMETER
+                                        <option  class="opt" >$hotel->Nom
+                                        </option> 
+ DELIMETER;
+                                             echo $m;
+                                         }    
+                                                            }
+                                                        }
 
                                                             ?>
+                                    
                                     </select>
                                     </div>
                             </div>
@@ -60,8 +53,15 @@
                                     foreach ($chambres as $chambre)
 
                                         { 
-                                        echo "<option>$chambre->type</option>";
-                                                            }}
+                                      {  
+                                     $m=<<<DELIMETER
+                                        <option  class="opt" >$chambre->type
+                                        </option> 
+ DELIMETER;
+                                             echo $m;
+                                         }
+                                                            }
+                                                        }
 
                                                             ?>
 
@@ -75,7 +75,11 @@
                                         <option value="" selected hidden>Nombre de personnes</option>
                                       <?php
                                       for($i=0;$i<=9;$i++){  
-                                        echo "<option>$i</option>";
+                                     $m=<<<DELIMETER
+                                        <option  class="opt" >$i
+                                        </option> 
+ DELIMETER;
+                                             echo $m;
                                          }  ?>
                                     </select>  </div>
                             </div>
@@ -120,7 +124,7 @@
 
     <!-- Post Slider -->
             <div class="post-slider">
-              <h2 class="slider-title" style="color:rgb(0,132,137) ;">Explorez Nos Hôtels</h2>
+              <h2 class="slider-title" style="color:rgb(0,53,128) ;">Explorez Nos Hôtels</h2>
               <i class="fas fa-chevron-left prev"></i>
               <i class="fas fa-chevron-right next"></i>
               <div class="post-wrapper">
@@ -152,7 +156,7 @@ DELIMETER;
 
       <!-- Main Content -->
             <div class="main-content">
-              <h1 class="recent-post-title"  style="color:rgb(0,132,137) ;">Trouvez des offres sur des hôtels</h1>
+              <h1 class="recent-post-title"  style="color:rgb(0,53,128) ;">Trouvez des offres sur des hôtels</h1>
     <?php 
 
     if (!empty($hotels)){
@@ -179,7 +183,7 @@ DELIMETER;
         </div>
    <!-- // Main Content -->
 
-{{--       <div class="sidebar">
+      <div class="sidebar">
 
         <div class="section search">
           <h2 class="section-title">Search</h2>
@@ -204,7 +208,7 @@ DELIMETER;
 
       </div>
 
-    </div> --}}
+    </div>
     <!-- // Content -->
 
   </div>
