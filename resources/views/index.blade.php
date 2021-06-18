@@ -18,12 +18,12 @@
     
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <div class="form-group">  &nbsp;
                                     
                                     <select name="hotel" class="form-control" required>
 
-                                        <option value="" class="menu" selected hidden>Hôtel</option>
+                                       <option value="" class="menu" selected hidden>Hôtel</option>
                                        <?php 
                                        if (!empty($hotels)){
                                     foreach ($hotels as $hotel)
@@ -31,7 +31,7 @@
                                         {
                                               {  
                                      $m=<<<DELIMETER
-                                        <option  class="opt" >$hotel->Nom
+                                        <option  class="opt" >$hotel->Nom &nbsp;($hotel->ville)
                                         </option> 
  DELIMETER;
                                              echo $m;
@@ -45,7 +45,7 @@
                                     </div>
                             </div>
 
-                            <div class="col-md-2">
+                         {{--    <div class="col-md-2">
                                 <div class="form-group"> <strong> &nbsp;</strong><select  name='chambre' class="form-control" required>
                                        <option value="" selected hidden>Chambre</option>
                                         <?php 
@@ -67,10 +67,10 @@
 
                                 
                                     </select> </div>
-                            </div>
+                            </div> --}}
 
 
-                            <div class="col-md-2">
+                            {{-- <div class="col-md-2">
                                 <div class="form-group"> <strong> &nbsp;</strong><select class="form-control" name="nombre_personne" required>
                                         <option value="" selected hidden>Nombre de personnes</option>
                                       <?php
@@ -82,14 +82,14 @@
                                              echo $m;
                                          }  ?>
                                     </select>  </div>
-                            </div>
-                            <div class="col-md-2">
+                            </div> --}}
+                            <div class="col-md-3">
                                 <div class="form-group"><strong>Arrivée</strong><input name="date_arrive" class="form-control" type="date" required ></div>
                             </div>
-                              <div class="col-md-2">
+                              <div class="col-md-3">
                                 <div class="form-group"> <strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
                             </div> 
-                            <div class="col-md-2">&nbsp;
+                            <div class="col-md-3">&nbsp;
                         <div class="form-btn"> <button class="submit-btn">Réservez</button>
                             </div>
 

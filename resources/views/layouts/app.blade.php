@@ -29,8 +29,10 @@
     <ul class="nav">
               <li><a href="{{ route('index') }}">Accueil</a></li>
               <li><a href="chambres">Chambres</a></li> 
-                               <!-- Authentication Links -->                 
-       <li>
+      <!-- Authentication Links -->      
+             <li><a href="#"><i class="fas fa-user-plus">&nbsp;S'inscrire</i></a></li>       
+             <li><a href="#"><i class="fas fa-sign-in-alt">&nbsp;Se connecter</i></a></li>     
+       {{-- <li>
         <a href="#">
           <i class="fa fa-user"></i>
           Awa Melvine
@@ -40,7 +42,7 @@
           <li><a href="#">Dashboard</a></li>
           <li><a href="#" class="logout">Logout</a></li>
         </ul>
-      </li> 
+      </li>  --}}
     </ul>
   </header>	  
  <main class="py-4">

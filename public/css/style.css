@@ -87,11 +87,6 @@ a {
 
 /* NAVBAR */
 
-header {
-  background: rgb(0,53,128);
-  height: 66px;
-}
-
 header * {
   color: white;
 }
