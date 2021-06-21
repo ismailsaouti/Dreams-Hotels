@@ -29,22 +29,39 @@
     <ul class="nav">
               <li><a href="{{ route('index') }}">Accueil</a></li>
               <li><a href="chambres">Chambres</a></li> 
-      <!-- Authentication Links -->      
-             <li><a href="#"><i class="fas fa-user-plus">&nbsp;S'inscrire</i></a></li>       
-             <li><a href="#"><i class="fas fa-sign-in-alt">&nbsp;Se connecter</i></a></li>     
-       {{-- <li>
-        <a href="#">
-          <i class="fa fa-user"></i>
-          Awa Melvine
-          <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-        </a>
-        <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#" class="logout">Logout</a></li>
-        </ul>
-      </li>  --}}
+              <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li>
+                                    <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt">&nbsp;{{ __('Se connecter') }}</i></a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus">&nbsp;{{ __('S\'inscrire') }}</i></a>
+                                </li>
+                            @endif
+                        @else                           
+                            <li>
+                              <a href="{{ route('home') }}">
+                                <i class="fa fa-user"></i>
+                                {{ Auth::user()->name }}
+                                <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
+                              </a>
+                              <ul>
+                                <li><a href="{{ route('home') }}">Votre réservations</a></li>
+                                <li>
+                                  <a  class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                 </form>
+                                </li>
+                              </ul>
+                            </li> 
+                      @endguest
     </ul>
-  </header>	  
+  </header>   
  <main class="py-4">
             @yield('content')
         </main>
@@ -124,10 +141,6 @@
 
   <!-- Custom Script -->
   <script src="js/scripts.js"></script>
-
+    
 </body>
-
 </html>
-  	
-</body>
-</html>				

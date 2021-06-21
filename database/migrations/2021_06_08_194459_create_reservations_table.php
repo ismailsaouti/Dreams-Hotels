@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('hotel_id')->references('id')->on('hotels');
             $table->foreignId('chambre_id')->references('id')->on('chambres');
+            $table->integer("nombre_personne");
             $table->timestamps();
         });
     }

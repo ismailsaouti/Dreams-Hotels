@@ -19,7 +19,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <div class="form-group">  &nbsp;
+                                <div class="form-group">  &nbsp; <strong>choisissez un hôtel </strong>
                                     
                                     <select name="hotel" class="form-control" required>
 
@@ -84,10 +84,10 @@
                                     </select>  </div>
                             </div> --}}
                             <div class="col-md-3">
-                                <div class="form-group"><strong>Arrivée</strong><input name="date_arrive" class="form-control" type="date" required ></div>
+                                <div class="form-group">&nbsp;<strong>Arrivée</strong><input name="date_arrive" class="form-control" type="date" required ></div>
                             </div>
                               <div class="col-md-3">
-                                <div class="form-group"> <strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
+                                <div class="form-group"> &nbsp;<strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
                             </div> 
                             <div class="col-md-3">&nbsp;
                         <div class="form-btn"> <button class="submit-btn">Réservez</button>
