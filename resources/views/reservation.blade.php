@@ -1,97 +1,59 @@
-
-   @extends('layouts.app')
+  @extends('layouts.app')
     @section('content')
-
-{{--reservation page  --}}
-<style>
-.booking-form .submit-btn {
-    color: #fff;
-    background-color: #006669;
-    font-weight:500;
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border : none;
-    text-transform: capitalize ;
-    font-size: 16px;
-    letter-spacing: 1.3px 
-}
-
-</style>
-  <div id="booking" class="section">
+{{-- reservtion form --}}
+<div id="booking" class="section">
     <div class="section-center">
         <div class="container">
             <div class="row">
                 <div class="booking-form">
                     <div class="form-header">
-                        <h2>Réservez </h2>
+                        <h2 style="color:rgb(0,53,128) ;">CHOISISSEZ LA CHAMBRE</h2>
                     </div>
 
 
                     <form action="{{ Route('save') }}" name="reservation" method="get">
-                        <div class="row"> 
-                           {{--  <div  class="form-group"><strong>Arrivée</strong></div>
-                            <div  class="form-group"><strong>Départ</strong></div> --}}
-    
-                        </div>
                         <div class="row">
-                     {{--        <div class="col-md-4">
-                                <div class="form-group">
-                                    
+                           <div class="col-md-3">
+                                <div class="form-group">  &nbsp;
                                     <select name="hotel" class="form-control" required>
-
-                                        <option value="" class="menu" selected hidden>Hôtel</option>
+                                        <option value="" class="menu" selected hidden>chambre</option>
                                        <?php 
-                                       if (!empty($hotels)){
-                                    foreach ($hotels as $hotel)
+                                       if (!empty($chambres)){
+                                        foreach ($chambres as $chambre){
+                                            $m=<<<DELIMETER
+                                            <option  class="opt" >$chambre->type &nbsp;($chambre->prix DH) </option> 
+ DELIMETER;
+                                             echo $m;
+                                        } 
 
-                                        {
-                                        echo "<option>$hotel->Nom</option>";
-                                                            }}
-
-                                                            ?>
+                                     }
+                                        ?>
                                     </select>
-                                    </div>
-                            </div --}}
-
-                            <div class="col-md-4">
-                                <div class="form-group"> <strong> &nbsp;</strong><select  name='chambre' class="form-control" required>
-                                       <option value="" selected hidden>Chambre</option>
-                                        <?php 
-                                     if (!empty($chambres)){
-                                    foreach ($chambres as $chambre)
-
-                                        { 
-                                        echo "<option>$chambre->type</option>";
-                                                            }}
-
-                                                            ?>
-
-                                
-                                    </select> </div>
+                                </div>
                             </div>
-
-
-                            <div class="col-md-4">
-                                <div class="form-group"> <strong> &nbsp;</strong><select class="form-control" name="nombre_personne" required>
-                                        <option value="" selected hidden>Nombre de personnes</option>
-                                      <?php
-                                      for($i=0;$i<=9;$i++){  
-                                        echo "<option>$i</option>";
-                                         }  ?>
-                                    </select>  </div>
+                            <div class="col-md-3">
+                                <div class="form-group">&nbsp; 
+                                    <select name="nombre_personne" class="form-control" required>
+                                        <option value="" class="menu" selected hidden>{{ __('Nombre de personnes') }}</option>
+                                       <?php 
+                                        for($i=0;$i<=20;$i++){  
+                                     $m=<<<DELIMETER
+                                        <option  class="opt" >$i
+                                        </option> 
+ DELIMETER;
+                                             echo $m;
+                                         } 
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group"><strong>Arrivée</strong><input name="date_arrive" class="form-control" type="date" required ></div>
+                            <div class="col-md-3">&nbsp;
+                                <div class="form-btn"> 
+                                    <button class="submit-btn">{{ __('RÉSERVEZ') }}</button>
+                                </div>
                             </div>
-                              <div class="col-md-2">
-                                <div class="form-group"> <strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
-                            </div>
-
                         </div> {{-- Class row --}}
-                        <div class="form-btn"> <button class="submit-btn">Réservez maintenant</button>
-                         
-                    </form>                  
+                         </form>                  
                    <?php 
                   $messages=' ';
                  if (!empty($errors)){
@@ -114,4 +76,100 @@
         </div>
     </div>
 </div>
+{{-- end reservtion --}}
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Post Slider -->
+            <div class="post-slider">
+              <h2 class="slider-title" style="color:rgb(0,53,128) ;">Explorez Nos Hôtels</h2>
+              <i class="fas fa-chevron-left prev"></i>
+              <i class="fas fa-chevron-right next"></i>
+              <div class="post-wrapper">
+   <?php 
+    if (!empty($hotels)){
+        foreach ($hotels as $hotel){
+          $messages=<<<DELIMETER
+
+
+                <div class="post">
+                  <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+                  <div class="post-info">
+                    <h4><a href="single.html">$hotel->Nom</a></h4>
+                    <i class="fas fa-map-marker-alt"> $hotel->ville</i>
+                  <p class="preview-text"> $hotel->description </p>
+                  </div>
+                </div>
+DELIMETER;
+     echo $messages;
+     }
+    }
+  ?>
+              </div>
+            </div>
+    <!-- // Post Slider -->
+
+    <!-- Content -->
+    <div class="content clearfix">
+
+      <!-- Main Content -->
+            <div class="main-content">
+              <h1 class="recent-post-title"  style="color:rgb(0,53,128) ;">Trouvez des offres sur des hôtels</h1>
+    <?php 
+
+    if (!empty($hotels)){
+        foreach ($hotels as $hotel){
+          $messages=<<<DELIMETER
+         
+
+
+        <div class="post clearfix">
+          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <div class="post-preview">
+            <h2><a href="single.hmtl">$hotel->Nom</a></h2>
+               <i class="fas fa-map-marker-alt">&nbsp;$hotel->ville</i>
+            &nbsp;
+            <p class="preview-text">$hotel->description</p>
+            <a href="reservation" class="btn read-more">Réservez</a>
+          </div>
+        </div>
+DELIMETER;
+     echo $messages;
+     }
+    }
+  ?>
+        </div>
+   <!-- // Main Content -->
+
+      <div class="sidebar">
+
+        <div class="section search">
+          <h2 class="section-title">Search</h2>
+          <form action="index.html" method="post">
+            <input type="text" name="search-term" class="text-input" placeholder="Search...">
+          </form>
+        </div>
+
+
+        <div class="section topics">
+          <h2 class="section-title">Topics</h2>
+          <ul>
+            <li><a href="#">Poems</a></li>
+            <li><a href="#">Quotes</a></li>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Biography</a></li>
+            <li><a href="#">Motivation</a></li>
+            <li><a href="#">Inspiration</a></li>
+            <li><a href="#">Life Lessons</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- // Content -->
+
+  </div>
+  <!-- // Page Wrapper -->
+
     @endsection

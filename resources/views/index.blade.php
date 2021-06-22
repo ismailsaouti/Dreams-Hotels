@@ -90,7 +90,7 @@
                                 <div class="form-group"> &nbsp;<strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
                             </div> 
                             <div class="col-md-3">&nbsp;
-                        <div class="form-btn"> <button class="submit-btn">Réservez</button>
+                        <div class="form-btn"> <button class="submit-btn">Continuer</button>
                             </div>
 
                         </div> {{-- Class row --}}

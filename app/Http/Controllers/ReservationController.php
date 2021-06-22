@@ -9,7 +9,11 @@ use App\Models\Chambre;
 use DB;
 class ReservationController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    //saving reservation
     function save(Request $req){
         //variable vient de Form de réservationn
         $date_arrive=$req->date_arrive;
@@ -57,18 +61,20 @@ class ReservationController extends Controller
          if($chambre->type==$chambre_type){$res->chambre_id=$chambre->id;}
                                 }
 
-        $res->save();
-             echo "Merci";   
+        $res->save(); 
        //
-        return redirect('/hotel-post');
+             return view('chambres');
     }
 }
+/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
 
 function reservation(){
      $hotels = DB::table('hotels')->get();  
      $chambres = DB::table('chambres')->get();   
      return view('reservation',compact('hotels') ,compact('chambres'));
-
-
 }                    
 }

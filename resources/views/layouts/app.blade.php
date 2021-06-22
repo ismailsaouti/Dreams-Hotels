@@ -50,9 +50,9 @@
                                 <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
                               </a>
                               <ul>
-                                <li><a href="{{ route('home') }}">Votre réservations</a></li>
+                                <li><a href="{{ route('home') }}">{{ __('Mes réservations') }}</a></li>
                                 <li>
-                                  <a  class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                  <a  class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('SE DÉCONNECTER') }}</a>
                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                  </form>
