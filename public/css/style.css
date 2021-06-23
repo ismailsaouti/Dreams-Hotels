@@ -129,10 +129,15 @@ header ul li ul {
 
 header ul li:hover ul {
   display: block;
+  position: relative;
+    width: 160px;    
+   
+  
 }
 
 header ul li ul li {
   width: 100%;
+
 }
 
 header ul li ul li a {
@@ -143,6 +148,8 @@ header ul li ul li a {
 
 header ul li ul li a.logout {
   color: red;
+  
+
 }
 
 header ul li ul li a:hover {
@@ -417,7 +424,7 @@ header .menu-toggle {
 }
 
 .footer .footer-content .about h1 span {
-  color: #05f7ff;
+ color:rgb(245,162,28);
 }
 
 .footer .footer-content .about .contact span {
