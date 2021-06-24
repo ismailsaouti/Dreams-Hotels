@@ -31,25 +31,9 @@ Route::get('/login', function () {
     return view('auth.login');
     
 })->name('login');
-Auth::routes();
+Auth::routes(['verify'=>true]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-//sending email api
-Route::get('/test',function(){
-    $data=[
-        'title'=>'hotel',
-        'content'=>'hello world!'
-    ];
-    Mail::send('hotelpost',$data,function($message){
-        $message->to('imajaren.is@gmail.com','ismail')->subject('hello ismail saouti');
-    });
-})->name('test');
