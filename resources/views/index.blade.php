@@ -17,26 +17,19 @@
                                 <div class="form-group">  &nbsp; <strong>choisissez un hôtel </strong>
                                     
                                     <select name="hotel" class="form-control" required>
-
                                        <option value="" class="menu" selected hidden>Hôtel</option>
                                        <?php 
-                                       if (!empty($hotels)){
-                                    foreach ($hotels as $hotel)
-
-                                        {
-                                              {  
-                                     $m=<<<DELIMETER
-                                        <option  class="opt" >$hotel->Nom &nbsp;($hotel->ville)
-                                        </option> 
- DELIMETER;
-                                             echo $m;
-                                         }    
-                                                            }
-                                                        }
-
-                                                            ?>
- -_                                  
-                                    </select>
+                                    if (!empty($hotels)){
+                                            foreach ($hotels as $hotel){ 
+                                             $m=<<<DELIMETER
+                                                <option  value="$hotel->id" class="opt" >$hotel->Nom &nbsp;($hotel->ville)
+                                                </option> 
+DELIMETER;
+                                                     echo $m;
+                                           }    
+                                     }
+                                     ?>
+                                   </select>
                                     </div>
                             </div>
                             <div class="col-md-3">

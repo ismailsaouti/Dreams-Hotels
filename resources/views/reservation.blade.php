@@ -15,15 +15,16 @@
                         <div class="row">
                             <input type="hidden" name="date_arrive"  value="{{$req->date_arrive}}">
                             <input type="hidden" name="date_depart"  value="{{$req->date_depart}}">
+                            <input type="hidden" name="hotel_id"  value="{{$req->hotel}}">
                            <div class="col-md-3">
                                 <div class="form-group">  &nbsp;
-                                    <select name="chambre" class="form-control" required>
+                                    <select name="id_chambre" class="form-control" required>
                                         <option value="" class="menu" selected hidden>chambre</option>
                                        <?php 
                                        if (!empty($chambres)){
                                         foreach ($chambres as $chambre){
                                             $m=<<<DELIMETER
-                                            <option  class="opt" >$chambre->type &nbsp;($chambre->prix DH) </option> 
+                                            <option value="$chambre->id" class="opt" >$chambre->type &nbsp;($chambre->prix DH) </option> 
  DELIMETER;
                                              echo $m;
                                         } 

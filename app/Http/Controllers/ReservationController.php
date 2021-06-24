@@ -29,10 +29,10 @@ class ReservationController extends Controller
         $reservation = new Reservation;  
         $reservation->date_arrive=$req->date_arrive;
         $reservation->date_depart=$req->date_depart;
-        $reservation->hotel_id=1;
-        $reservation->user_id=1;
+        $reservation->hotel_id=$req->hotel_id;
+        $reservation->user_id=auth()->user()->id;
+        $reservation->chambre_id=$req->id_chambre;
         $reservation->nombre_personne=$req->nombre_personne;
-        $reservation->chambre_id=1;
         $reservation->save(); 
       echo "Merci";
     
