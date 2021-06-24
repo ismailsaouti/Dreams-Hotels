@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HotelController::class, 'index'])->name('index');
-Route::get('/resever-hotel', [App\Http\Controllers\ReservationController::class, 'reserver'])->name('reserver');
+Route::get('/resever-hotel', [App\Http\Controllers\ReservationController::class, 'reserver'])->name('reserver')->middleware('verified');
 Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])->name('save');
 Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'reservation'])->name('reservation'); 
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
