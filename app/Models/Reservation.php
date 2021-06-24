@@ -9,8 +9,8 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'date_depart', 
         'date_arrive',
+        'date_depart', 
         'nombre_personne'
        /* 'hotel_id',
         'chambre_id' */

@@ -13,58 +13,29 @@ class ReservationController extends Controller
     {
         $this->middleware('auth');
     }
-    //saving reservation
-    function save(Request $req){
-        //variable vient de Form de réservationn
-        $date_arrive=$req->date_arrive;
-        $date_depart=$req->date_depart;
-        $nombre_personne=$req->nombre_personne;
-      //  $nom_hotel=$req->hotel;
-        $chambre_type=$req->chambre;
-
-        //Erreurs possible effectues par le client
-        $today = (string)date("Y-m-d");
-        $arrive=(string)$date_arrive;
-        if (date("Y-m-d") > $date_arrive){
-            $errors[]="Veuillez vérifier la date d'arrivée ";            
-        }
-        if ($date_arrive > $date_depart){
-            $errors[]="La date de départ avant la date d'arrivée!";            
-        }
-       if (!empty($errors)){ //test false si on n'a pas d'erreur c-à-d $errors!=Null
-       
-        $chambres = DB::table('chambres')->get();  
-       return view('reservation',compact('errors'),compact('chambres'));
-       }else{
-        $res = new Reservation;
-        $res->date_arrive=$date_arrive;
-        $res->date_depart=$date_depart;
-        $res->nombre_personne=$nombre_personne;
-        //Cherechre pour trouver un hotel a partir de son nom
-        // $hotel = Hotel::where('Nom',$nom_hotel);
-        //Répresenter tous les hotels avec tous les colonnes
-         //$hotels = DB::table('hotels')->get();
-     
+    //continuer reservation
+    function reserver(Request $req){
         //Recherche pour trouver id d'un hotel à partir de son nom   
-        /*foreach ($hotels as $hotel)
-          {
-         if($hotel->Nom==$nom_hotel){
-                      $res->hotel_id=$hotel->id;
-                                }
-                         }*/
-        //Cherechre pour trouver un chambre a partir de son type
-        $chambre = Chambre::where('type',$chambre_type);
-        //Répresenter tous les chambres avec tous les colonnes
+        //$hotelfind = Hotel::where('Nom',$req->hotel);
+       // $hotels= DB::table('hotels')->get();                        
         $chambres = DB::table('chambres')->get();
-        //Recherche pour trouver id d'une chambre à partir de son type   
-        foreach ($chambres as $chambre){
-         if($chambre->type==$chambre_type){$res->chambre_id=$chambre->id;}
-                                }
-
-        $res->save(); 
-       //
-             return view('chambres');
+            return view('reservation',compact('req'),compact('chambres'));
+             
     }
+    //saving reservation
+    function save(Request $req){  
+        //$find_chambre = Chambre::where('type',$req->chambre);
+
+        $reservation = new Reservation;  
+        $reservation->date_arrive=$req->date_arrive;
+        $reservation->date_depart=$req->date_depart;
+        $reservation->hotel_id=1;
+        $reservation->user_id=1;
+        $reservation->nombre_personne=$req->nombre_personne;
+        $reservation->chambre_id=1;
+        $reservation->save(); 
+      echo "Merci";
+    
 }
 /**
      * Create a new controller instance.
@@ -76,5 +47,19 @@ function reservation(){
      $hotels = DB::table('hotels')->get();  
      $chambres = DB::table('chambres')->get();   
      return view('reservation',compact('hotels') ,compact('chambres'));
-}                    
+}  
+
 }
+/* $today = (string)date("Y-m-d");
+        $arrive=(string)$date_arrive;
+        if (date("Y-m-d") > $date_arrive){
+            $errors[]="Veuillez vérifier la date d'arrivée ";            
+        }
+        if ($date_arrive > $date_depart){
+            $errors[]="La date de départ avant la date d'arrivée!";            
+        }
+       if (!empty($errors)){ //test false si on n'a pas d'erreur c-à-d $errors!=Null
+       
+        $chambres = DB::table('chambres')->get();  
+       return view('reservation',compact('errors'),compact('chambres'));
+       }*/

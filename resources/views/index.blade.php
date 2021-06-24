@@ -9,13 +9,8 @@
                     <div class="form-header">
                         <h2 style="color:rgb(0,53,128) ;">Réservez Maintenant</h2>
                     </div>
-
-
-                    <form action="{{ Route('save') }}" name="reservation" method="get">
+                    <form action="{{ Route('reserver') }}" name="reservation" method="get">
                         <div class="row"> 
-                           {{--  <div  class="form-group"><strong>Arrivée</strong></div>
-                            <div  class="form-group"><strong>Départ</strong></div> --}}
-    
                         </div>
                         <div class="row">
                             <div class="col-md-3">
@@ -40,57 +35,18 @@
                                                         }
 
                                                             ?>
-                                    
+ -_                                  
                                     </select>
                                     </div>
                             </div>
-
-                         {{--    <div class="col-md-2">
-                                <div class="form-group"> <strong> &nbsp;</strong><select  name='chambre' class="form-control" required>
-                                       <option value="" selected hidden>Chambre</option>
-                                        <?php 
-                                     if (!empty($chambres)){
-                                    foreach ($chambres as $chambre)
-
-                                        { 
-                                      {  
-                                     $m=<<<DELIMETER
-                                        <option  class="opt" >$chambre->type
-                                        </option> 
- DELIMETER;
-                                             echo $m;
-                                         }
-                                                            }
-                                                        }
-
-                                                            ?>
-
-                                
-                                    </select> </div>
-                            </div> --}}
-
-
-                            {{-- <div class="col-md-2">
-                                <div class="form-group"> <strong> &nbsp;</strong><select class="form-control" name="nombre_personne" required>
-                                        <option value="" selected hidden>Nombre de personnes</option>
-                                      <?php
-                                      for($i=0;$i<=9;$i++){  
-                                     $m=<<<DELIMETER
-                                        <option  class="opt" >$i
-                                        </option> 
- DELIMETER;
-                                             echo $m;
-                                         }  ?>
-                                    </select>  </div>
-                            </div> --}}
                             <div class="col-md-3">
                                 <div class="form-group">&nbsp;<strong>Arrivée</strong><input name="date_arrive" class="form-control" type="date" required ></div>
                             </div>
                               <div class="col-md-3">
                                 <div class="form-group"> &nbsp;<strong>Départ</strong><input name="date_depart" class="form-control" type="date" required></div>
                             </div> 
-                            <div class="col-md-3">&nbsp;
-                        <div class="form-btn"> <button class="submit-btn">Continuer</button>
+                            <div class="continuer">&nbsp;
+                        <div class="form-btn"> <button class="submit-btn">{{ __('CONTINUER')}}</button>
                             </div>
 
                         </div> {{-- Class row --}}

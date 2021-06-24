@@ -1,4 +1,4 @@
-  @extends('layouts.app')
+@extends('layouts.app')
     @section('content')
 {{-- reservtion form --}}
 <div id="booking" class="section">
@@ -13,9 +13,11 @@
 
                     <form action="{{ Route('save') }}" name="reservation" method="get">
                         <div class="row">
+                            <input type="hidden" name="date_arrive"  value="{{$req->date_arrive}}">
+                            <input type="hidden" name="date_depart"  value="{{$req->date_depart}}">
                            <div class="col-md-3">
                                 <div class="form-group">  &nbsp;
-                                    <select name="hotel" class="form-control" required>
+                                    <select name="chambre" class="form-control" required>
                                         <option value="" class="menu" selected hidden>chambre</option>
                                        <?php 
                                        if (!empty($chambres)){
@@ -47,7 +49,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-3">&nbsp;
+                            <div class="">&nbsp;
                                 <div class="form-btn"> 
                                     <button class="submit-btn">{{ __('RÉSERVEZ') }}</button>
                                 </div>

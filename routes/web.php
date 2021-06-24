@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HotelController::class, 'index'])->name('index');
+Route::get('/resever-hotel', [App\Http\Controllers\ReservationController::class, 'reserver'])->name('reserver');
 Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])->name('save');
 Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'reservation'])->name('reservation'); 
-Route::get('/hotel-post', [App\Http\Controllers\HotelController::class, 'hotelsPosts'])->name('hotels_posts');
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
+
+
 Route::get('/chambres', function () {
     return view('chambres');
 })->name('chambres');
@@ -26,6 +28,7 @@ Route::get('/register', function () {
 })->name('register');
 Route::get('/login', function () {
     
+    return view('auth.login');
     
 })->name('login');
 Auth::routes();
@@ -37,6 +40,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 //sending email api
 Route::get('/test',function(){
