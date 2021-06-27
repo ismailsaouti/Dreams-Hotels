@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Hotel;
 use App\Models\Chambre;
+<<<<<<< HEAD
 use App\Models\User;
 
+=======
+use App\Models\User; 
+>>>>>>> b6aeb04179289c74893d5773d5772e1913f5290f
 use DB;
 
 class ReservationController extends Controller
@@ -46,6 +50,7 @@ class ReservationController extends Controller
      * @return void
      */
 
+<<<<<<< HEAD
     function reservation()
     {
         $hotels = DB::table('hotels')->get();
@@ -61,6 +66,23 @@ class ReservationController extends Controller
        // dd($reservations->Hotels);
         return view('consulter_reservation', compact('reservations'));
     }
+=======
+function reservation(){
+    $hotels = DB::table('hotels')->get();  
+    $chambres = DB::table('chambres')->get();   
+    return view('reservation',compact('hotels') ,compact('chambres'));
+} 
+
+function userReservation(){
+  $reservations=User::find(auth()->user()->id)->reservations;
+  foreach ($reservations as $res) {
+      echo $res->id.'<br />';
+      $hotel=Reservation::find($res->hotel_id)->Hotels;
+      echo $hotel->Nom;
+  }
+}
+
+>>>>>>> b6aeb04179289c74893d5773d5772e1913f5290f
 
 }
 

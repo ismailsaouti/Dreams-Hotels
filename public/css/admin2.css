@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box
 }
 
@@ -7,7 +7,7 @@ body {
   height: 100%;
   padding: 0px;
   margin: 0px;
-  background: white;
+  background: #f6f6f6;
   font-family: 'Lora', serif;
 }
 
@@ -35,7 +35,7 @@ a {
 
 .btn {
   padding: .5rem 1rem;
-  background: rgb(0,53,128);
+  background: #006669;
   color: white;
   border: 1px solid transparent;
   border-radius: .25rem;
@@ -79,6 +79,7 @@ a {
   border: 1px solid #3a6e3a;
   background: #bcf5bc;
 }
+
 .error {
   color: #884b4b;
   border: 1px solid #884b4b;
@@ -86,6 +87,11 @@ a {
 }
 
 /* NAVBAR */
+
+header {
+  background: #008489;
+  height: 66px;
+}
 
 header * {
   color: white;
@@ -103,16 +109,14 @@ header .logo-text {
 }
 
 header .logo-text span {
-  color:rgb(245,162,28);
+  color: #05f7ff;
 }
 
 header ul {
   float: right;
-  margin: 0px !important;
+  margin: 0px;
   padding: 0px;
   list-style: none;
-  
-
 }
 
 header ul li {
@@ -120,9 +124,6 @@ header ul li {
   position: relative;
 }
 
-.log{
-  position: absolute;
-}
 header ul li ul {
   position: absolute;
   top: 66px;
@@ -134,15 +135,10 @@ header ul li ul {
 
 header ul li:hover ul {
   display: block;
-  position: relative;
-    width: 160px;    
-   
-  
 }
 
 header ul li ul li {
   width: 100%;
-
 }
 
 header ul li ul li a {
@@ -153,8 +149,6 @@ header ul li ul li a {
 
 header ul li ul li a.logout {
   color: red;
-  
-
 }
 
 header ul li ul li a:hover {
@@ -169,7 +163,7 @@ header ul li a {
 }
 
 header ul li a:hover {
-  background: rgb(0,53,128);
+  background: #006669;
   transition: 0.5s;
 }
 
@@ -182,7 +176,7 @@ header .menu-toggle {
 }
 
 .page-wrapper a:hover {
-  color: rgb(0,53,128);
+  color: #006669;
 }
 
 /* POST SLIDER */
@@ -201,7 +195,7 @@ header .menu-toggle {
   top: 50%;
   right: 30px;
   font-size: 2em;
-  color: rgb(0,53,128);
+  color: #006669;
   cursor: pointer;
 }
 
@@ -210,7 +204,7 @@ header .menu-toggle {
   top: 50%;
   left: 30px;
   font-size: 2em;
-  color: rgb(0,53,128);
+  color: #006669;
   cursor: pointer;
 }
 
@@ -305,14 +299,14 @@ header .menu-toggle {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  border: 1px solid rgb(0,53,128);
+  border: 1px solid #006669;
   background: transparent;
   border-radius: 0px;
-  color: rgb(0,53,128) !important;
+  color: #006669 !important;
 }
 
 .content .main-content .post .read-more:hover {
-  background: rgb(0,53,128);
+  background: #006669;
   color: white !important;
   transition: .25s;
 }
@@ -429,7 +423,7 @@ header .menu-toggle {
 }
 
 .footer .footer-content .about h1 span {
- color:rgb(245,162,28);
+  color: #05f7ff;
 }
 
 .footer .footer-content .about .contact span {
@@ -571,8 +565,6 @@ header .menu-toggle {
 
   .showing {
     max-height: 100em;
-    width: 100% !important;
-    margin: 0 !important;
   }
 
   header ul li {
@@ -593,7 +585,7 @@ header .menu-toggle {
   }
 
   header ul li ul li a:hover {
-    background: rgb(0,53,128);
+    background: #006669;
   }
 
   header ul li ul li a.logout {
@@ -602,11 +594,10 @@ header .menu-toggle {
 
   header .menu-toggle {
     display: block;
-   position:sticky;
+    position: absolute;
     right: 20px;
     top: 20px;
     font-size: 1.9em;
-    
   }
 
   header .logo {
@@ -650,4 +641,4 @@ header .menu-toggle {
   .post-slider .prev {
     left: 10px;
   }
-  
+}

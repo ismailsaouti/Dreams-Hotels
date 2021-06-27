@@ -17,6 +17,12 @@ class Reservation extends Model
     ];
     //One to many Reslationships (un hotel, plusieurs réserevation)
     public function Hotels(){
-        return $this->belongsTo("App\Models\Hotel");
+        return $this->belongsTo("App\Models\Hotel",'id');
+    }
+    public function UserReservation(){
+        return $this->belongsTo("App\Models\User",'id');
+    }
+    public function Chambres(){
+        return $this->belongsTo("App\Models\Chambre",'id');
     }
 }

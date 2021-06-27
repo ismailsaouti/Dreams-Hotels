@@ -18,10 +18,16 @@ class Chambre extends Model
         'hotel_id'
     ];
     //One to one relationships between Chambres and Hotels
-       public function Hotel(){
-        return $this->belongsTo("App\Models\Hotel");
+       public function hotel(){
+        return $this->belongsTo("App\Models\Hotel",'id');
     } 
-    public function Hotels(){
-        return $this->belongsToMany("App\Models\Hotel");
+    //public function Hotels(){
+      //  return $this->belongsToMany("App\Models\Hotel");
+    //}
+    public function reservations()
+    {
+
+        return $this->hasOne('App\Models\reservation');
     }
+
 }

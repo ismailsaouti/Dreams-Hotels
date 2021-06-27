@@ -16,12 +16,7 @@ class Hotel extends Model
     ];
     use HasFactory;
     //One to one relationships between Chambres and Hotels
-    public function Chambre(){
-        return $this->hasOne("App\Models\Chambre");
-    }
-    public function Chambres()
-    {
-
+    public function Chambres(){
         return $this->hasMany("App\Models\Chambre");
     }  
     //One to many (One hotel, Many reservation )
