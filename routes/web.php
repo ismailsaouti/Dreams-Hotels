@@ -19,6 +19,8 @@ Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])
 Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'reservation'])->name('reservation'); 
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
 
+Route::get('/mes-réservations', [App\Http\Controllers\ReservationController::class, 'userReservation'])->name('consulter'); 
+
 
 Route::get('/chambres', function () {
     return view('chambres');

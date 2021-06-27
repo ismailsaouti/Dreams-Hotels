@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Hotel;
 use App\Models\Chambre;
+use App\Models\User;
+
 use DB;
+
 class ReservationController extends Controller
 {
     public function __construct()
@@ -14,42 +17,53 @@ class ReservationController extends Controller
         $this->middleware('auth');
     }
     //continuer reservation
-    function reserver(Request $req){
+    function reserver(Request $req)
+    {
         //Recherche pour trouver id d'un hotel à partir de son nom   
         //$hotelfind = Hotel::where('Nom',$req->hotel);
-       // $hotels= DB::table('hotels')->get();                        
+         // $hotels= DB::table('hotels')->get();                        
         $chambres = DB::table('chambres')->get();
-            return view('reservation',compact('req'),compact('chambres'));
-             
+        return view('reservation', compact('req'), compact('chambres'));
     }
     //saving reservation
-    function save(Request $req){  
+    function save(Request $req)
+    {
         //$find_chambre = Chambre::where('type',$req->chambre);
 
-        $reservation = new Reservation;  
-        $reservation->date_arrive=$req->date_arrive;
-        $reservation->date_depart=$req->date_depart;
-        $reservation->hotel_id=$req->hotel_id;
-        $reservation->user_id=auth()->user()->id;
-        $reservation->chambre_id=$req->id_chambre;
-        $reservation->nombre_personne=$req->nombre_personne;
-        $reservation->save(); 
-      echo "Merci";
-    
-}
-/**
+        $reservation = new Reservation;
+        $reservation->date_arrive = $req->date_arrive;
+        $reservation->date_depart = $req->date_depart;
+        $reservation->hotel_id = $req->hotel_id;
+        $reservation->user_id = auth()->user()->id;
+        $reservation->chambre_id = $req->id_chambre;
+        $reservation->nombre_personne = $req->nombre_personne;
+        $reservation->save();
+        echo "Merci";
+    }
+    /**
      * Create a new controller instance.
      *
      * @return void
      */
 
-function reservation(){
-     $hotels = DB::table('hotels')->get();  
-     $chambres = DB::table('chambres')->get();   
-     return view('reservation',compact('hotels') ,compact('chambres'));
-}  
+    function reservation()
+    {
+        $hotels = DB::table('hotels')->get();
+        $chambres = DB::table('chambres')->get();
+        return view('reservation', compact('hotels'), compact('chambres'));
+    }
+
+
+    function userReservation()
+    {
+         $reservations = Reservation::where('user_id', (auth()->user()->id))->get();
+       // $reservations = Reservation::all();
+       // dd($reservations->Hotels);
+        return view('consulter_reservation', compact('reservations'));
+    }
 
 }
+
 /* $today = (string)date("Y-m-d");
         $arrive=(string)$date_arrive;
         if (date("Y-m-d") > $date_arrive){

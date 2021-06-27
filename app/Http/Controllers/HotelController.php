@@ -8,7 +8,7 @@ use DB;
 
 class HotelController extends Controller
 {
-    //
+    
 
      function index(){
 

@@ -11,9 +11,9 @@ class Reservation extends Model
     protected $fillable = [
         'date_arrive',
         'date_depart', 
-        'nombre_personne'
-       /* 'hotel_id',
-        'chambre_id' */
+        'nombre_personne',
+        'hotel_id',
+        'chambre_id'
     ];
     //One to many Reslationships (un hotel, plusieurs réserevation)
     public function Hotels(){

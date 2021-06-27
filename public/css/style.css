@@ -108,9 +108,11 @@ header .logo-text span {
 
 header ul {
   float: right;
-  margin: 0px;
+  margin: 0px !important;
   padding: 0px;
   list-style: none;
+  
+
 }
 
 header ul li {
@@ -118,6 +120,9 @@ header ul li {
   position: relative;
 }
 
+.log{
+  position: absolute;
+}
 header ul li ul {
   position: absolute;
   top: 66px;
@@ -566,6 +571,8 @@ header .menu-toggle {
 
   .showing {
     max-height: 100em;
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   header ul li {
@@ -595,10 +602,11 @@ header .menu-toggle {
 
   header .menu-toggle {
     display: block;
-    position: absolute;
+   position:sticky;
     right: 20px;
     top: 20px;
     font-size: 1.9em;
+    
   }
 
   header .logo {
