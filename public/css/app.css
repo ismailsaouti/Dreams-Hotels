@@ -1,3 +1,13 @@
+/* css for veiw auth/verify */
+  .col-md-8{
+ 
+    margin: 80px 0px 150px 120px;
+   padding: 50px 50xp 80px 50px;
+}
+.alert-success{
+}
+/*____________________________________*/
+
 /*reservation css*/
 header {
   background-color: rgb(0,53,128);

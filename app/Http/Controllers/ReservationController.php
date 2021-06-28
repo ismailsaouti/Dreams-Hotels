@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Hotel;
 use App\Models\Chambre;
+use App\Models\User; 
 use DB;
 class ReservationController extends Controller
 {
@@ -44,10 +45,20 @@ class ReservationController extends Controller
      */
 
 function reservation(){
-     $hotels = DB::table('hotels')->get();  
-     $chambres = DB::table('chambres')->get();   
-     return view('reservation',compact('hotels') ,compact('chambres'));
-}  
+    $hotels = DB::table('hotels')->get();  
+    $chambres = DB::table('chambres')->get();   
+    return view('reservation',compact('hotels') ,compact('chambres'));
+} 
+
+function userReservation(){
+  $reservations=User::find(auth()->user()->id)->reservations;
+  foreach ($reservations as $res) {
+      echo $res->id.'<br />';
+      $hotel=Reservation::find($res->hotel_id)->Hotels;
+      echo $hotel->Nom;
+  }
+}
+
 
 }
 /* $today = (string)date("Y-m-d");
