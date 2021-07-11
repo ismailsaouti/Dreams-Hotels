@@ -24,6 +24,10 @@ Route::get('/create-reservation', [App\Http\Controllers\AdminController::class, 
 Route::get('/create-hotel', [App\Http\Controllers\AdminController::class, 'createHotel'])->name('c_hotels');
 Route::get('/create-chambre', [App\Http\Controllers\AdminController::class, 'createChambre'])->name('c_chambres');
 Route::get('/create-utilisateur', [App\Http\Controllers\AdminController::class, 'createUtilisateur'])->name('c_utilisateurs');
+Route::post('/save-hotel', [App\Http\Controllers\AdminController::class, 'saveHotel'])->name('save_hotel');
+Route::post('/save-chambre', [App\Http\Controllers\AdminController::class, 'saveChambre'])->name('save_chambre');
+Route::get('/delete-hotel/{hotel_id}', [App\Http\Controllers\AdminController::class, 'deleteHotel'])->name('delete_hotel');
+
 //index route
 Route::get('/', [App\Http\Controllers\HotelController::class, 'index'])->name('index');
 //reservation routes
@@ -41,17 +45,9 @@ Route::get('/my-reservations', [App\Http\Controllers\ReservationController::clas
 Route::get('/chambres', function () {
     return view('chambres');
 })->name('chambres');
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-Route::get('/login', function () {
-    
-    return view('auth.login');
-    
-})->name('login');
 Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
-
-
+//test
+Route::get('/test', [App\Http\Controllers\AdminController::class, 'test']);
 

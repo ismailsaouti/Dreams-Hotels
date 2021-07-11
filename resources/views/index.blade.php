@@ -84,7 +84,7 @@ DELIMETER;
 
 
                 <div class="post">
-                  <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="slider-image">
+                  <img src="images/hotels/$hotel->photo" alt="" class="slider-image">
                   <div class="post-info">
                     <h4><a href="single.html">$hotel->Nom</a></h4>
                     <i class="fas fa-map-marker-alt"> $hotel->ville</i>
@@ -115,7 +115,7 @@ DELIMETER;
 
 
         <div class="post clearfix">
-          <img src="https://i.imgur.com/Vp4CSyw.jpg" alt="" class="post-image">
+          <img src="images/hotels/$hotel->photo" alt="" class="post-image">
           <div class="post-preview">
             <h2><a href="single.hmtl">$hotel->Nom</a></h2>
                <i class="fas fa-map-marker-alt">&nbsp;$hotel->ville</i>

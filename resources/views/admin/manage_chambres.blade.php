@@ -10,7 +10,7 @@
 
                 <div class="content">
 
-                    <h2 class="page-title">Gestion d'hôtels</h2>
+                    <h2 class="page-title">Gestion de chambres</h2>
                           <table>                     
                                 <?php 
                                     if (!empty($chambres)){

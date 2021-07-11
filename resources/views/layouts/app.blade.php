@@ -32,16 +32,20 @@
        <li><a href="chambres">Chambres</a></li>
        <!-- Authentication Links -->
        @guest
-       @if (Route::has('login'))
-       <li>
-         <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt">&nbsp;{{ __('Se connecter') }}</i></a>
-       </li>
+       @if(Route::current()->getName() != 'login' and Route::current()->getName() != 'register' )
+         @if (Route::has('login'))
+         <li>
+           <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt">&nbsp;{{ __('Se connecter') }}</i></a>
+         </li>
+         @endif
        @endif
 
-       @if (Route::has('register'))
-       <li class="nav-item">
-         <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus">&nbsp;{{ __('S\'inscrire') }}</i></a>
-       </li>
+       @if(Route::current()->getName() != 'login' and Route::current()->getName() != 'register')
+         @if (Route::has('register'))
+         <li class="nav-item">
+           <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus">&nbsp;{{ __('S\'inscrire') }}</i></a>
+         </li>
+         @endif
        @endif
        @else
        <li>

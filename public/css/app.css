@@ -122,6 +122,10 @@ color: white; /*yellow*/
 
 /*---------------------*/
 /*Login css*/
+.form-check-label{
+ color: #00415d;
+ 
+}
 .title{
     margin: 20px 420px 0px 415px;
     padding: 10px 0px 50px 0px;

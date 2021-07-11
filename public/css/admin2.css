@@ -46,6 +46,7 @@ a {
 .btn-big {
   padding: .7rem 1.3rem;
   line-height: 1.3rem;
+  background-color: rgb(254,187,2);
 }
 
 .btn:hover {

@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="te">
     <div class="row">
     <div class="title" >
-     <h2 style="color: rgb(245,162,28) ;">Se connecter ou créer un compte</h2>
+     <h2 style="color: rgb(245,162,28) ;">Se connecter ou créer un compte </h2>
     </div>
     </div>
         <div class="row">
@@ -21,7 +22,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-md-12">
                                     <form id="login-form" method="POST" action="{{ route('login') }}"> 
                                         @csrf
                                        
@@ -51,7 +52,7 @@
                                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                                     <label class="form-check-label" for="remember">
-                                                        {{ __('Remember Me') }}
+                                                        {{ __('Souviens-moi') }}
                                                     </label>
                                                 </div>
                                             </div>
@@ -76,6 +77,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 @endsection
 

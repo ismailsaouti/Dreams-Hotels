@@ -32,7 +32,7 @@
                                 <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Nom" value="" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="phone" id="phone" tabindex="1" class="form-control" placeholder="Téléphone" value="" a required>
+                                <input type="text" name="phone" id="phone" tabindex="1" class="form-control" placeholder="Téléphone" a required>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">

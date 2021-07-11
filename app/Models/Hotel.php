@@ -12,17 +12,19 @@ class Hotel extends Model
         'ville',
         'adresse',
         'telephone',
-        'description'
+        'description',
+        'photo'
     ];
     use HasFactory;
     //One to one relationships between Chambres and Hotels
     public function Chambres(){
         return $this->hasMany("App\Models\Chambre");
-    }  
+    }
+  
     //One to many (One hotel, Many reservation )
     public function reservations()
     {
 
         return $this->hasMany('App\Models\reservation');
-    }
+    } 
 }

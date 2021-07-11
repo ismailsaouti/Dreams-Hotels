@@ -2,7 +2,7 @@
 @section('content')
  <div class="content">
 
-
+            <div class="admin-content">
                 <div class="content">
 
                     <h2 class="page-title">Add User</h2>
@@ -34,7 +34,10 @@
                                 <option value="Admin">Admin</option>
                             </select>
                         </div>
-
+                         <div>
+                            <label>Image</label>
+                            <input type="file" name="image" class="text-input">
+                        </div>
                         <div>
                             <button type="submit" class="btn btn-big">Add User</button>
                         </div>
