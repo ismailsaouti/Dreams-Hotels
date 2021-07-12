@@ -18,6 +18,7 @@
                             <th>Adresse</th>
                             <th>Téléphone</th>
                             <th>Description</th>
+                            <th>Photo</th>
                             <th colspan="3">Action</th>
                           
                         </thead>
@@ -30,11 +31,12 @@
                                              <tr>
                                                  <td>$hotel->id</td>
                                                  <td>$hotel->Nom</td>
-                                                 <td>$hotel->ville</td>
+                                              <td>$hotel->ville</td>
                                                  <td>$hotel->adresse</td>
                                                  <td>$hotel->telephone</td>
                                                  <td>$hotel->description</td>
-                                                 <td><a href="delete-hotel/$hotel->id" class="delete">delete</a></td>
+                                                 <td>$hotel->photo</td>
+                                                 <td><a href="delete-hotel/$hotel->id" class="delete">Supprimer</a></td>
                                                {{--   <td><a href="#" class="edit">edit</a></td> --}}
                                             </tr>
                                             DELIMETER;

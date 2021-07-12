@@ -3,8 +3,8 @@
  <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
-                    <a href="{{ Route('c_reservations') }}" class="btn btn-big">Nouveau resérvation</a>
-                    <a href="index.html" class="btn btn-big">xxx</a>
+                    <a href="{{ Route('c_reservations') }}" class="btn btn-big">Nouveau rérervation</a>
+                   {{--  <a href="index.html" class="btn btn-big">xxx</a> --}}
                 </div>
 
 
@@ -12,7 +12,7 @@
 
                     <h2 class="page-title">Gestion de reservations</h2>
 
-                    <table>
+                    <table id="customers">
                         <thead>
                             <th>Client</th>
                             <th>Hotel</th>
@@ -37,8 +37,8 @@
                                                  <td>$reservation->email</td>
                                                  <td>pays</td>
                                                  <td><a href="#" class="edit">edit</a></td>
-                                                 <td><a href="#" class="delete">delete</a></td>
-                                                 <td><a href="#" class="publish"></a></td>
+                                                {{--  <td><a href="#" class="delete">delete</a></td>
+                                                 <td><a href="#" class="publish"></a></td> --}}
                                             </tr>
                                             DELIMETER;
                                     }    

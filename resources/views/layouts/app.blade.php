@@ -15,6 +15,9 @@
    <!-- Custom Styling -->
    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <!-- Admin Styling -->
+   <link href="{{ asset('css/admin2.css') }}" rel="stylesheet">
+
 
    <title>Dreams-Hotel</title>
 

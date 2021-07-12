@@ -22,12 +22,12 @@ class AdminController extends Controller
     public function index(){
         $reservations = DB::table('reservations')->get();
          foreach ($reservations as $res) {
-              $hotel=Reservation::find($res->hotel_id)->Hotels;
+              $hotel=Hotel::find($res->hotel_id);
               $res->hotel=$hotel->Nom;
-              $chambre=Reservation::find($res->chambre_id)->Chambres;
+              $chambre=Chambre::find($res->chambre_id);
               $res->chambre=$chambre->type;
               $res->prix=$chambre->prix;
-              $user=Reservation::find($res->user_id)->UserReservation;
+              $user=User::find($res->user_id);
               $res->user=$user->name." ".$user->last_name;
               $res->phone=$user->phone;
               $res->email=$user->email;
@@ -38,11 +38,37 @@ class AdminController extends Controller
     }
     public function createReservation()
     {
-        return view('admin.create_reservations');
+        $hotels = DB::table('hotels')->get();
+        return view('admin.create_reservations',compact('hotels'));
     }  
+    public function ChoisissezHotel(Request $req)
+    {
+      
+        $hotel_id=$req->hotel_id;
+        $chambres = DB::table('chambres')->get();
+        $users = DB::table('users')->get();
+        return view('admin.create2_reservation',compact('chambres','hotel_id','users'));
+   
+    }
 
 
 
+
+     public function saveReseravtion(Request $req)
+    {
+        
+
+        $reservation = new Reservation;
+        $reservation->hotel_id = $req->hotel_id;
+        $reservation->chambre_id = $req->chambre_id;
+        $reservation->user_id = $req->user_id;
+        $reservation->date_arrive = $req->date_arrive;
+        $reservation->date_depart = $req->date_depart;
+        $reservation->nombre_personne = $req->nombre_personne;
+        $reservation->save();
+        return redirect()->route('admin');
+      
+    }    
     //gestion d'hotels----------------------------------------------------------------------
    
     public function hotels() {
@@ -72,7 +98,7 @@ class AdminController extends Controller
         $hotel->save();
         return redirect()->route('g_hotels');
       
-    }
+    }  
     public function deleteHotel($hotel_id)
     {
        $hotel=Hotel::find($hotel_id);
@@ -81,24 +107,24 @@ class AdminController extends Controller
     }
 
 //--------------------------------------------------------------------------------------------
-
-    //gestion de chambres
+//gestion de chambres-------------------------------------------------------------------------
     public function chambres()
     {
-       /* $chambres = DB::table('chambres')->orderBy('hotel_id', 'asc')->get(); 
-        foreach ($chambres as $ch) {
-              $hotel=Chambre::find($ch->hotel_id)->hotel;
+        $chambres = DB::table('chambres')->orderBy('hotel_id', 'asc')->get(); 
+       foreach ($chambres as $ch) {
+              $hotel=Hotel::find($ch->hotel_id);
              
-              $ch->hotel=$hotel->Nom;
+              $ch->hotel_nom=$hotel->Nom;
+              $ch->hotel_ville=$hotel->ville;
             }
-        return view('admin.manage_chambres',compact('chambres'));*/
-        return view('admin.manage_chambres');
+        return view('admin.manage_chambres',compact('chambres'));
     }
     public function createChambre()
     {
            $hotels = DB::table('hotels')->get();   
         return view('admin.create_chambres',compact('hotels'));
     } 
+    //ajouter chambre
     public function saveChambre(Request $req)
     {
         //$find_chambre = Chambre::where('type',$req->chambre);
@@ -119,11 +145,27 @@ class AdminController extends Controller
         $chambre->save();
         return redirect()->route('g_chambres');
     }
+    //supprimer chambre
+    public function deleteChambre($chambre_id)
+    {
+       $chambre=Chambre::find($chambre_id);
+       $chambre->delete();
+       return redirect()->route('g_chambres');
+    }
+    //change disponibilite
+    public function changeDisponibilite($chambre_id,$chambre_disponibilite){
+        $chambre=Chambre::find($chambre_id);
+        if($chambre->disponibilite){
+            $chambre->disponibilite=false;
+        }else{
+            $chambre->disponibilite=true;
+       }
+       $chambre->save();
+       return redirect()->route('g_chambres');
 
-
-
-
-    //gestion d'utilisateurs
+    }
+//-------------------------------------------------------------------------------------
+//gestion d'utilisateurs---------------------------------------------------------------
     public function utilisateurs()
     {
         return view('admin.manage_users');

@@ -13,22 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//admin routes
+//admin routes--------------------------------------------------------------------
 
+//hotel------
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-Route::get('/gestion-hotels', [App\Http\Controllers\AdminController::class, 'hotels'])->name('g_hotels');
-Route::get('/gestion-chambres', [App\Http\Controllers\AdminController::class, 'chambres'])->name('g_chambres');
-Route::get('/gestion-utilisateurs', [App\Http\Controllers\AdminController::class, 'utilisateurs'])->name('g_utilisateurs');
-//
-Route::get('/create-reservation', [App\Http\Controllers\AdminController::class, 'createReservation'])->name('c_reservations');
 Route::get('/create-hotel', [App\Http\Controllers\AdminController::class, 'createHotel'])->name('c_hotels');
-Route::get('/create-chambre', [App\Http\Controllers\AdminController::class, 'createChambre'])->name('c_chambres');
-Route::get('/create-utilisateur', [App\Http\Controllers\AdminController::class, 'createUtilisateur'])->name('c_utilisateurs');
 Route::post('/save-hotel', [App\Http\Controllers\AdminController::class, 'saveHotel'])->name('save_hotel');
-Route::post('/save-chambre', [App\Http\Controllers\AdminController::class, 'saveChambre'])->name('save_chambre');
 Route::get('/delete-hotel/{hotel_id}', [App\Http\Controllers\AdminController::class, 'deleteHotel'])->name('delete_hotel');
-
-//index route
+Route::get('/gestion-hotels', [App\Http\Controllers\AdminController::class, 'hotels'])->name('g_hotels');
+//chambre----
+Route::get('/gestion-chambres', [App\Http\Controllers\AdminController::class, 'chambres'])->name('g_chambres');
+Route::get('/create-chambre', [App\Http\Controllers\AdminController::class, 'createChambre'])->name('c_chambres');
+Route::get('/delete-chambre/{chambre_id}', [App\Http\Controllers\AdminController::class, 'deleteChambre'])->name('delete_chambre');
+Route::post('/save-chambre', [App\Http\Controllers\AdminController::class, 'saveChambre'])->name('save_chambre');
+Route::get('/change-disponiblite-chambre/{chambre_id}/{chambre_disponibilite}', [App\Http\Controllers\AdminController::class, 'changeDisponibilite']);
+//gestion reservation---
+Route::post('/save-reservation', [App\Http\Controllers\AdminController::class, 'saveReseravtion'])->name('save_reservation');
+Route::get('/create-reservation', [App\Http\Controllers\AdminController::class, 'createReservation'])->name('c_reservations');
+Route::post('/reserver_hotel', [App\Http\Controllers\AdminController::class, 'ChoisissezHotel'])->name('Choisissez_hotel');
+Route::get('/gestion-utilisateurs', [App\Http\Controllers\AdminController::class, 'utilisateurs'])->name('g_utilisateurs');
+Route::get('/create-utilisateur', [App\Http\Controllers\AdminController::class, 'createUtilisateur'])->name('c_utilisateurs');
+//-------------------------------------------------------------------------
+//index route--------------------------------------------------------------
 Route::get('/', [App\Http\Controllers\HotelController::class, 'index'])->name('index');
 //reservation routes
 Route::get('/resever-hotel', [App\Http\Controllers\ReservationController::class, 'reserver'])->name('reserver')->middleware('verified');
@@ -36,15 +42,15 @@ Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])
 Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'reservation'])->name('reservation'); 
 Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
 
+//reservation of a client
 Route::get('/mes-réservations', [App\Http\Controllers\ReservationController::class, 'userReservation'])->name('consulter'); 
 
+Route::get('/annuler-reservation/{res_id}', [App\Http\Controllers\ReservationController::class, 'annulerReservation']);
 
-//reservation of a client
-Route::get('/my-reservations', [App\Http\Controllers\ReservationController::class, 'userReservation'])->name('user_reservations');
 
-Route::get('/chambres', function () {
-    return view('chambres');
-})->name('chambres');
+Route::get('/chambres', function () {return view('chambres');})->name('chambres');
+
+//Authentification
 Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 

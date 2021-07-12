@@ -55,9 +55,25 @@ class ReservationController extends Controller
     function userReservation()
     {
          $reservations = Reservation::where('user_id', (auth()->user()->id))->get();
-       // $reservations = Reservation::all();
-       // dd($reservations->Hotels);
+         foreach($reservations as $res){
+            $hotel=Hotel::find($res->hotel_id);
+            $chambre=Chambre::find($res->chambre_id);
+            $res->hotel_nom=$hotel->Nom;
+            $res->hotel_adresse=$hotel->adresse;
+            $res->hotel_ville=$hotel->ville;
+            $res->chambre_type=$chambre->type;
+            $res->chambre_prix=$chambre->prix;
+           
+       }
         return view('consulter_reservation', compact('reservations'));
+    }
+    //annuler réservation
+    public function annulerReservation($res_id){
+        $res=Reservation::find($res_id);
+        $res->delete();
+        return redirect()->back();
+
+     
     }
 
 
