@@ -57,7 +57,7 @@
               <td>{{$reservation->hotel_adresse}}</td>
               <td><a href="annuler-reservation/{{$reservation->id}}" class="delete">Annuler</a></td>
               
-              @if($reservation->confirmation===true)
+              @if($reservation->confirmation==true)
                  <td>votre réservation est  confirmée</td>
              @else
 
