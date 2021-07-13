@@ -6,12 +6,14 @@
         <div class="container">
             <div class="row">
                 <div class="booking-form">
-                    <div class="form-header">
-                        <h2 style="color:rgb(0,53,128) ;">Réservez Maintenant</h2>
-                    </div>
+                   
+                           
+                        <div class="form-group">
+                            <h2 class="container" style="color:rgb(0,53,128) ; text-align: center;">Réservez Maintenant</h2>
+                   
+             </div>
                     <form action="{{ Route('reserver') }}" name="reservation" method="get">
-                        <div class="row"> 
-                        </div>
+                        
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">  &nbsp; <strong>choisissez un hôtel </strong>
@@ -121,7 +123,6 @@ DELIMETER;
                <i class="fas fa-map-marker-alt">&nbsp;$hotel->ville</i>
             &nbsp;
             <p class="preview-text">$hotel->description</p>
-            <a href="reservation" class="btn read-more">Réservez</a>
           </div>
         </div>
 DELIMETER;
@@ -135,23 +136,20 @@ DELIMETER;
       <div class="sidebar">
 
         <div class="section search">
-          <h2 class="section-title">Search</h2>
+          <h2 class="section-title">Rechercher</h2>
           <form action="index.html" method="post">
-            <input type="text" name="search-term" class="text-input" placeholder="Search...">
+            <input type="text" name="search-term" class="text-input" placeholder="Rechercher...">
           </form>
         </div>
 
 
         <div class="section topics">
-          <h2 class="section-title">Topics</h2>
+          <h2 class="section-title">Les sujets</h2>
           <ul>
-            <li><a href="#">Poems</a></li>
-            <li><a href="#">Quotes</a></li>
-            <li><a href="#">Fiction</a></li>
-            <li><a href="#">Biography</a></li>
+            <li><a href="#">Poèmes</a></li>
+            <li><a href="#">Biographie</a></li>
             <li><a href="#">Motivation</a></li>
-            <li><a href="#">Inspiration</a></li>
-            <li><a href="#">Life Lessons</a></li>
+            <li><a href="#">Lecons de vie</a></li>
           </ul>
         </div>
 
