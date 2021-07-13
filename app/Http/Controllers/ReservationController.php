@@ -21,9 +21,9 @@ class ReservationController extends Controller
         //$hotelfind = Hotel::where('Nom',$req->hotel);
          // $hotels= DB::table('hotels')->get();                        
         $chambres = DB::table('chambres')->get();
-        foreach($chambres as $chambre){
         $chambre_reserve=Reservation::where('chambre_id',$chambre->id)->orderBy('date_depart','desc')->take(1)->get();
-
+            print_r($chambre_reserve);
+        foreach($chambres as $chambre){
             if(!empty($reservation[0]['date_depart'])){
             $chambre->date_depart=$chambre_reserve[0]['date_depart'];
             }else{

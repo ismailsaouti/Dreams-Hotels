@@ -1,20 +1,25 @@
 	@extends('layouts.app')
 	@section('content')
-    
-    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
-      <div class="container">
-        <div class="row align-items-center site-hero-inner justify-content-center">
-          <div class="col-md-12 text-center">
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
 
-            <div class="mb-5 element-animate">
-              <h1>Our Rooms</h1>
-              <p>Discover our world's #1 Luxury Room For VIP.</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
+    <!-- Post Slider -->
+    <div class="post-slider">
+      <h2 class="slider-title" style="color:rgb(0,53,128) ;">Explorez Nos chambres</h2>
+      <i class="fas fa-chevron-left prev"></i>
+      <i class="fas fa-chevron-right next"></i>
+                                                 <div class="post-wrapper">
+                 @foreach ($chambres as $chambre) 
+                                                <div class="post">
+                                                  <img src="images/chambres/{{$chambre->photo}}" alt="" class="slider-image">
+                                                  <div class="post-info">
+                                                    <h4><a href="single.html">{{$chambre->type}}</a></h4>
+                                                  <p class="preview-text"> {{$chambre->description}} </p>
+                                                  </div>
+                                                </div>
+                                        @endforeach
+                                              </div>
+                                            </div> 
+ 
 	@endsection
 

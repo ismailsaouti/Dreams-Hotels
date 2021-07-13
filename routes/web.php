@@ -47,9 +47,9 @@ Route::get('/', [App\Http\Controllers\HotelController::class, 'index'])->name('i
 //reservation routes
 Route::get('/resever-hotel', [App\Http\Controllers\ReservationController::class, 'reserver'])->name('reserver')->middleware('verified');
 Route::get('/save', [App\Http\Controllers\ReservationController::class, 'save'])->name('save');
-Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'reservation'])->name('reservation'); 
-Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
-Route::get('/chambres', function () {return view('chambres');})->name('chambres');
+//Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'reservation'])->name('reservation'); 
+//Route::get('/hotels', [App\Http\Controllers\HotelController::class, 'hotels'])->name('hotels');
+Route::get('/chambres', [App\Http\Controllers\HotelController::class, 'chambres'])->name('chambres');
 
 //reservation of a client
 Route::get('/mes-réservations', [App\Http\Controllers\ReservationController::class, 'userReservation'])->name('consulter'); 

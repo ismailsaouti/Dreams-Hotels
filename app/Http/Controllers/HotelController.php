@@ -18,6 +18,16 @@ class HotelController extends Controller
     return view('index',compact('hotels'),compact('chambres'));
 
      }
+      function chambres(){
+
+        $hotels = DB::table('hotels')->get();   
+        $chambres = DB::table('chambres')->get();   
+
+
+   return view('chambres',compact('hotels'),compact('chambres'));
+
+
+     }
    
      
 }
