@@ -88,18 +88,19 @@
        <div class="footer-section about">
          <h1 class="logo-text"><span>Dreams</span>Hôtels</h1>
          <p>
-           AwaInspires is a fictional blog conceived for the purpose of a tutorial on YouTube.
-           However, Awa has a blog called pieceofadvice.org where he writes truly inspiring stuff.
+         <br/>Nous sommes honorés que vous visitiez votre site. <br/>
+          Tout problème que vous rencontrez, s'il vous plaît contactez-nous. Merci
+          <br/><br/>
          </p>
          <div class="contact">
-           <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+           <span><i class="fas fa-phone"></i> &nbsp; +212 5-456-789</span>
            <span><i class="fas fa-envelope"></i> &nbsp; info@dreamshotel.com</span>
          </div>
          <div class="socials">
            <a href=""><i class="fab fa-facebook"></i></a>
            <a href="#"><i class="fab fa-instagram"></i></a>
            <a href="#"><i class="fab fa-twitter"></i></a>
-           <a href="#"><i class="fab fa-whatsApp"></i></a>
+          
          </div>
        </div>
 
@@ -108,20 +109,20 @@
          <br>
          <ul>
            <a href="#">
-             <li>xxxxx</li>
+             <li>Événements</li>
            </a>
            <a href="#">
-             <li>xxxxxx</li>
+             <li>Équipe</li>
            </a>
            <a href="#">
-             <li>xxxxxxxxx</li>
+             <li>Mentor </li>
            </a>
            <a href="#">
-             <li>xxxxxxx</li>
+             <li>Galerie</li>
            </a>
-           <a href="#">
-             <li>xxxxxxxxxx</li>
-           </a>
+          <!--  <a href="#">
+             <li>Termes et conditions </li>
+           </a> -->
          </ul>
        </div>
 
