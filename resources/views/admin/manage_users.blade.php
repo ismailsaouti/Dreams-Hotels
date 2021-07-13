@@ -59,7 +59,7 @@
                              <td>{{$user->phone}}</td>
                              <td>{{$user->email}}</td>
                              <td>{{$user->adress}}</td>
-                             <td><a href="delete-chambre/$chambre->id" class="delete">Supprimer</a></td>
+                             <td><a href="delete-user/{{$user->id}}" class="delete">Supprimer</a></td>
                              {{-- <td><a href="#" class="edit">edit</a></td>
                              <td><a href="#" class="publish"></a></td> --}}
                         </tr>

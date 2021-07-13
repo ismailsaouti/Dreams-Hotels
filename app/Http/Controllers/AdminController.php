@@ -125,6 +125,21 @@ class AdminController extends Controller
     public function deleteHotel($hotel_id)
     {
        $hotel=Hotel::find($hotel_id);
+        $chambres = DB::table('chambres')->get(); 
+        foreach($chambres as $ch){
+            if($ch->hotel_id==$hotel_id)
+            {
+                $reservations = DB::table('reservations')->get();   
+                 foreach($reservations as $res){
+                    if($res->chambre_id==$ch->id){
+                    AdminController::annulerReservation($res->id);
+                     }
+                }
+                AdminController::deleteChambre($ch->id);
+
+            }
+        }  
+
        $hotel->delete();
        return redirect()->route('g_hotels');
     }
@@ -173,7 +188,7 @@ class AdminController extends Controller
     {
        $chambre=Chambre::find($chambre_id);
        $chambre->delete();
-       return redirect()->route('g_chambres');
+       return redirect()->back();
     }
     //change disponibilite
     public function changeDisponibilite($chambre_id,$chambre_disponibilite){
@@ -202,6 +217,8 @@ class AdminController extends Controller
      public function deleteUser($user_id)
     {
        $user=User::find($user_id);
+       if ($user_id!=auth()->user()->id) {
+           // code...
        $reservations = DB::table('reservations')->get();   
        
        foreach($reservations as $res)
@@ -212,6 +229,9 @@ class AdminController extends Controller
        }
        $user->delete();
        return redirect()->back();
+       }else{
+        echo "<div>Attention:</div>Vous ne pouvez pas supprimer votre compte";
+       }
     }
 
 
