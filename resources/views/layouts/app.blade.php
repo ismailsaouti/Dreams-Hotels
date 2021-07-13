@@ -26,13 +26,13 @@
  <body>
    <header>
      <div class="logo">
-       <h1 class="logo-text"><span>Dreams</span>Hotel</h1>
+       <h1 class="logo-text"><a href="{{ Route('index')  }}"><span>Dreams</span>Hotel</a></h1>
      </div>
      <i class="fa fa-bars menu-toggle"></i>
      <ul class="nav">
 
-       <li><a href="{{ route('index') }}">Accueil</a></li>
-       <li><a href="chambres">Chambres</a></li>
+       <li><a href="{{ Route('index') }}">Accueil</a></li>
+       <li><a href="{{ Route('chambres') }}">Chambres</a></li>
        <!-- Authentication Links -->
        @guest
        @if(Route::current()->getName() != 'login' and Route::current()->getName() != 'register' )
@@ -58,9 +58,14 @@
            <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
          </a>
          <ul class="log">
+          @if(Auth::user()->type!='admin')
            <li><a href="{{ Route('consulter') }}">{{ __('Mes réservations') }}</a></li>
            <li>
-             <a class="logout" href="{{ Route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('SE DÉCONNECTER') }}</a>
+          @else  
+            <li><a href="{{ Route('admin') }}">{{ __('Gestion') }}</a></li>
+           <li>
+          @endif  
+            <a class="logout" href="{{ Route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('SE DÉCONNECTER') }}</a>
              <form id="logout-form" action="{{ Route('logout') }}" method="POST" class="d-none">
                @csrf
              </form>

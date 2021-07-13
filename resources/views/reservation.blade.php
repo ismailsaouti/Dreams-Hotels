@@ -20,17 +20,15 @@
                                 <div class="form-group">  &nbsp;
                                     <select name="id_chambre" class="form-control" required>
                                         <option value="" class="menu" selected hidden>chambre</option>
-                                       <?php 
-                                       if (!empty($chambres)){
-                                        foreach ($chambres as $chambre){
-                                            $m=<<<DELIMETER
-                                            <option value="$chambre->id" class="opt" >$chambre->type &nbsp;($chambre->prix DH) </option> 
- DELIMETER;
-                                             echo $m;
-                                        } 
-
-                                     }
-                                        ?>
+                                        @foreach ($chambres as $chambre)
+                                        @if( $chambre->disponibilite==true)
+                                        @if( $req->date_arrive>=$chambre->date_depart)   
+                                            <option value="$chambre->id" class="opt" >{{$chambre->type}} &nbsp;({{$chambre->prix}} DH) </option> 
+                        
+                                            
+                                        @endif               
+                                        @endif               
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

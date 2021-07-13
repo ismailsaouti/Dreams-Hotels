@@ -12,38 +12,41 @@
 
                     <h2 class="page-title">Gestion de reservations</h2>
 
-                    <table id="customers">
+                    <table id="customers" >
                         <thead>
                             <th>Client</th>
                             <th>Hotel</th>
-                            <th>Chambre</th>
+                            <th>Chambre</th> 
                             <th>Prix</th>
                             <th>Téléphone</th>
                             <th>Email</th>
                             <th>Pays</th>
+                            <th>Confirmation</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
-                                <?php 
-                                    if (!empty($reservations)){
-                                     foreach ($reservations as $reservation){ 
-                                            echo <<<DELIMETER
+                               
+                                     @foreach ($reservations as $reservation)
+                                        
                                              <tr>
-                                                 <td>$reservation->user</td>
-                                                 <td>$reservation->hotel</td>
-                                                 <td>$reservation->chambre</td>
-                                                 <td>$reservation->prix</td>
-                                                 <td>$reservation->phone</td>
-                                                 <td>$reservation->email</td>
+                                                 <td>{{ $reservation->user}}</td>
+                                                 <td>{{ $reservation->hotel}}</td>
+                                                 <td>{{ $reservation->chambre}}</td>
+                                                 <td>{{ $reservation->prix}}</td>
+                                                 <td>{{ $reservation->phone}}</td>
+                                                 <td>{{ $reservation->email}}</td>
                                                  <td>pays</td>
-                                                 <td><a href="#" class="edit">edit</a></td>
-                                                {{--  <td><a href="#" class="delete">delete</a></td>
-                                                 <td><a href="#" class="publish"></a></td> --}}
+                                                 @if($reservation->confirmation)
+                                                    <td  class="edit">confirmée</td>
+                                                    <td><a class="delete" href="confirmer-reservation/{{$reservation->id}}">Annuler la confirmation</a></td>
+                                                 @else   
+                                                    <td  class="delete">Non confirmée</td>
+                                                    <td><a class="edit" href="confirmer-reservation/{{$reservation->id}}" >confirmer</a></td>
+                                                @endif
+                                                    <td><a class="delete" href="annuler-reservation/{{$reservation->id}}" >Annuler la réservation</a></td>
                                             </tr>
-                                            DELIMETER;
-                                    }    
-                                       }
-                                ?>
+                                   
+                                     @endforeach
                         </tbody>
                     </table>
 

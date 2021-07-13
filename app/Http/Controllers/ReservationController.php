@@ -21,6 +21,16 @@ class ReservationController extends Controller
         //$hotelfind = Hotel::where('Nom',$req->hotel);
          // $hotels= DB::table('hotels')->get();                        
         $chambres = DB::table('chambres')->get();
+        foreach($chambres as $chambre){
+        $chambre_reserve=Reservation::where('chambre_id',$chambre->id)->orderBy('date_depart','desc')->take(1)->get();
+
+            if(!empty($reservation[0]['date_depart'])){
+            $chambre->date_depart=$chambre_reserve[0]['date_depart'];
+            }else{
+            $chambre->date_depart=$chambre_reserve[0]['date_depart'];
+            }
+        }
+
         return view('reservation', compact('req'), compact('chambres'));
     }
     //saving reservation
@@ -36,7 +46,7 @@ class ReservationController extends Controller
         $reservation->chambre_id = $req->id_chambre;
         $reservation->nombre_personne = $req->nombre_personne;
         $reservation->save();
-        echo "Merci";
+        return redirect()->route('consulter');
     }
     /**
      * Create a new controller instance.

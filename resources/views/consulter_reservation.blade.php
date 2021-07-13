@@ -36,7 +36,7 @@
 }
 </style>  
     <div class="content">
-     <h2 class="page-title">Gestion d'hôtels</h2>
+     <h2 class="page-title">Vos  réservations</h2>
      <table class="styled-table">
          <thead>
             <th>Hôtel</th>
@@ -58,10 +58,10 @@
               <td><a href="annuler-reservation/{{$reservation->id}}" class="delete">Annuler</a></td>
               
               @if($reservation->confirmation==true)
-                 <td>votre réservation est  confirmée</td>
+                 <td>Cette réservation est  confirmée</td>
              @else
 
-                <td>votre réservation n'est pas confirmée</td>
+                <td>Cette réservation n'est pas confirmée</td>
               @endif
              </tr>
               @endforeach

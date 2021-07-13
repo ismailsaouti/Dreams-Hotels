@@ -68,8 +68,31 @@ class AdminController extends Controller
         $reservation->save();
         return redirect()->route('admin');
       
-    }    
-    //gestion d'hotels----------------------------------------------------------------------
+    } 
+    //confirmer reservation
+    public function confirmerReseravtion($reservation_id){
+        $reservation=Reservation::find($reservation_id);
+        if ($reservation->confirmation==true) {
+        $reservation->confirmation=false;
+            // code...
+        } else {
+            // code...
+        $reservation->confirmation=true;
+        }
+        
+        $reservation->save();
+         return redirect()->back();
+      
+
+    }  
+    //supprimer réservation
+     public function annulerReservation($res_id)
+    {
+       $reservation=Reservation::find($res_id);
+       $reservation->delete();
+       return redirect()->back();
+    } 
+    //gestion d'hotels-----------------------------------------------------------------------
    
     public function hotels() {
         $hotels = DB::table('hotels')->get();   
@@ -166,19 +189,55 @@ class AdminController extends Controller
     }
 //-------------------------------------------------------------------------------------
 //gestion d'utilisateurs---------------------------------------------------------------
-    public function utilisateurs()
-    {
-        return view('admin.manage_users');
-    }
+  
     public function createUtilisateur()
     {
         return view('admin.create_users');
     }
+    public function utilisateurs()
+    {
+           $users = DB::table('users')->get();   
+        return view('admin.manage_users',compact('users'));
+    } 
+     public function deleteUser($user_id)
+    {
+       $user=User::find($user_id);
+       $reservations = DB::table('reservations')->get();   
+       
+       foreach($reservations as $res)
+       {
+         if($res->user_id==$user_id){
+            AdminController::annulerReservation($res->id);
+         }
+       }
+       $user->delete();
+       return redirect()->back();
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     //test
     public function test(){
+        $reservation=Reservation::where('chambre_id',30)->orderBy('date_depart','desc')->take(1)->get();
+        if (empty($reservation[0]['date_depart'])) {
+        echo "nillb";
+        } else {
+            // code...
+        echo $reservation[0]['date_depart'];
+        }
+        
+
 
     }
 }

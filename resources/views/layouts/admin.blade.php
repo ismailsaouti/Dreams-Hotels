@@ -107,20 +107,26 @@
     <body>
         <header>
             <div class="logo">
-                <h1 class="logo-text"><span>Dreams</span>Hotel</h1>
+                <h1 class="logo-text"><a href="{{ Route('index')  }}"><span>Dreams</span>Hotel</a></h1>
             </div>  
                  <i class="fa fa-bars menu-toggle"></i>
             <ul class="nav">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-user"></i>
-                          {{ Auth::user()->name }}
-                        <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-                    </a>
-                    <ul>
-                        <li><a href="{{ route('logout') }}" class="logout">{{ __('SE DÉCONNECTER') }}</a></li>
-                    </ul>
-                </li>
+              <li>
+         <a href="{{ route('home') }}">
+           <i class="fa fa-user"></i>
+           {{ Auth::user()->name }}
+           <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
+         </a>
+         <ul class="log">
+           <li><a  style="color: green;" href="{{ Route('index') }}">{{ __('DreamsHotel') }}</a></li>
+           <li>
+            <a class="logout" href="{{ Route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('SE DÉCONNECTER') }}</a>
+             <form id="logout-form" action="{{ Route('logout') }}" method="POST" class="d-none">
+               @csrf
+             </form>
+           </li>
+         </ul>
+       </li>
             </ul>
     
         </header>

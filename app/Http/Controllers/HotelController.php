@@ -18,10 +18,6 @@ class HotelController extends Controller
     return view('index',compact('hotels'),compact('chambres'));
 
      }
-     function hotels(){
-    return view('hotels',compact('hotels'));
-
-
-     }
+   
      
 }
